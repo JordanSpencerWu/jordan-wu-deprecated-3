@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "remix-app-template",
-  "description": "",
-  "license": "",
+  "name": "web-client",
+  "description": "web client for true stories",
+  "license": "MIT",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
