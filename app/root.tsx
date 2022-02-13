@@ -1,6 +1,12 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "remix";
 import type { MetaFunction } from "remix";
 
+import styles from "./tailwind.css";
+
+export function links() {
+	return [{ rel: "stylesheet", href: styles }];
+}
+
 export const meta: MetaFunction = () => {
 	return { title: "True Stories" };
 };
