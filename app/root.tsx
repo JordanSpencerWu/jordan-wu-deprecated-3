@@ -20,7 +20,7 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body>
+			<body className="min-h-screen flex w-full overflow-x-hidden bg-gray-900 text-white">
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
