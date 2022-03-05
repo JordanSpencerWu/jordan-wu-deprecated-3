@@ -1,14 +1,32 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "remix";
-import type { MetaFunction } from "remix";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, MetaFunction } from "remix";
 
+import Navbar from "./components/TopNavbar";
 import styles from "./tailwind.css";
 
 export function links() {
-	return [{ rel: "stylesheet", href: styles }];
+	return [
+		{
+			rel: "stylesheet",
+			href: styles,
+		},
+		{
+			rel: "preconnect",
+			href: "https://fonts.googleapis.com",
+		},
+		{
+			rel: "preconnect",
+			href: "https://fonts.gstatic.com",
+			crossOrigin: "anonymous",
+		},
+		{
+			rel: "stylesheet",
+			href: "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
+		},
+	];
 }
 
 export const meta: MetaFunction = () => {
-	return { title: "True Stories" };
+	return { title: "Jordan Wu" };
 };
 
 export default function App() {
@@ -20,7 +38,8 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="min-h-screen flex w-full overflow-x-hidden bg-gray-900 text-white">
+			<body className="min-h-screen w-full flex flex-col overflow-x-hidden">
+				<Navbar />
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
