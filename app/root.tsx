@@ -1,9 +1,11 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, MetaFunction } from "remix";
+import { useEffect } from "react";
+import { Links, LinksFunction, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "remix";
 
 import Navbar from "./components/TopNavbar";
+import { DARK_MODE, THEME } from "./hooks/useDarkMode";
 import styles from "./tailwind.css";
 
-export function links() {
+export const links: LinksFunction = () => {
 	return [
 		{
 			rel: "stylesheet",
@@ -23,13 +25,20 @@ export function links() {
 			href: "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
 		},
 	];
-}
-
-export const meta: MetaFunction = () => {
-	return { title: "Jordan Wu" };
 };
 
 export default function App() {
+	useEffect(() => {
+		if (
+			localStorage.theme === DARK_MODE ||
+			(!(THEME in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.add(DARK_MODE);
+		} else {
+			document.documentElement.classList.remove(DARK_MODE);
+		}
+	}, []);
+
 	return (
 		<html lang="en">
 			<head>
@@ -38,7 +47,7 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="min-h-screen w-full flex flex-col overflow-x-hidden">
+			<body className="bg-white dark:bg-slate-900 min-h-screen w-full flex flex-col overflow-x-hidden">
 				<Navbar />
 				<Outlet />
 				<ScrollRestoration />

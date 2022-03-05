@@ -1,3 +1,9 @@
+import { MetaFunction } from "remix";
+
+export const meta: MetaFunction = () => {
+	return { title: "Jordan Wu | Home" };
+};
+
 export default function Index() {
-	return <div className="text-3xl font-bold">Home Page</div>;
+	return <div></div>;
 }
