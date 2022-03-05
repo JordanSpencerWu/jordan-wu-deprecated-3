@@ -7,6 +7,7 @@ specifiers:
   '@types/react': ^17.0.24
   '@types/react-dom': ^17.0.9
   '@types/react-icons': ^3.0.0
+  animated-tailwindcss: ^3.2.7
   autoprefixer: ^10.4.2
   concurrently: ^7.0.0
   husky: ^7.0.4
@@ -33,6 +34,7 @@ devDependencies:
   '@types/react': 17.0.39
   '@types/react-dom': 17.0.11
   '@types/react-icons': 3.0.0_react@17.0.2
+  animated-tailwindcss: 3.2.7_postcss@8.4.6+tailwindcss@3.0.22
   autoprefixer: 10.4.2_postcss@8.4.6
   concurrently: 7.0.0
   husky: 7.0.4
@@ -452,6 +454,18 @@ packages:
     dependencies:
       clean-stack: 2.2.0
       indent-string: 4.0.0
+    dev: true
+
+  /animated-tailwindcss/3.2.7_postcss@8.4.6+tailwindcss@3.0.22:
+    resolution: {integrity: sha512-Fvg/AYgLINgZNnbh09fxOQ6wrgp6gwy3jeBktMcf7fZcroyJMSYc4FxLy1Wqo7DAnwSe7jA6oTLJKbWkwd06cQ==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      postcss: ^8
+      tailwindcss: ^3
+    dependencies:
+      csstype: 3.0.10
+      postcss: 8.4.6
+      tailwindcss: 3.0.22_autoprefixer@10.4.2
     dev: true
 
   /ansi-escapes/4.3.2:

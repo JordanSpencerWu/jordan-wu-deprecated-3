@@ -14,8 +14,16 @@ export default function Navbar() {
 			<Link className="text-slate-900 dark:text-white text-3xl font-bold" to={pathTo.home}>
 				Jordan Wu
 			</Link>
-			{showLightMode && <LightModeIcon size={24} className="absolute right-2" onClick={toggleDarkMode} />}
-			{showDarkMode && <DarkModeIcon size={24} className="dark:text-white absolute right-2" onClick={toggleDarkMode} />}
+			{showLightMode && (
+				<LightModeIcon size={24} className="absolute right-2 animate-fade-in" onClick={toggleDarkMode} />
+			)}
+			{showDarkMode && (
+				<DarkModeIcon
+					size={24}
+					className="dark:text-white absolute right-2 animate-fade-in "
+					onClick={toggleDarkMode}
+				/>
+			)}
 		</div>
 	);
 }
