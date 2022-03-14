@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Links, LinksFunction, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "remix";
 
 import Navbar from "./components/TopNavbar";
+import BottomNavbar from "./components/BottomNavbar";
 import { DARK_MODE, THEME } from "./hooks/useDarkMode";
 import styles from "./tailwind.css";
 
@@ -47,12 +48,13 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-white dark:bg-slate-900 min-h-screen w-full flex flex-col overflow-x-hidden">
+			<body className="bg-white dark:bg-slate-900 min-h-screen w-full relative flex flex-col overflow-x-hidden">
 				<Navbar />
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
 				{process.env.NODE_ENV === "development" && <LiveReload />}
+				<BottomNavbar />
 			</body>
 		</html>
 	);
