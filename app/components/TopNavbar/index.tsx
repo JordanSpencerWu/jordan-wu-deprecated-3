@@ -1,4 +1,4 @@
-import { Link, useLocation } from "remix";
+import { Link, useLocation } from "@remix-run/react";
 import { MdOutlineWbSunny as LightModeIcon, MdModeNight as DarkModeIcon } from "react-icons/md";
 
 import useDarkMode, { DARK_MODE, LIGHT_MODE } from "../../hooks/useDarkMode";

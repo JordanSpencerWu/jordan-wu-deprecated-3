@@ -1,4 +1,4 @@
-import { Link, useLocation } from "remix";
+import { Link, useLocation } from "@remix-run/react";
 import { AiFillHome as HomeIcon, AiOutlineHome as OutlineHomeIcon } from "react-icons/ai";
 import { CgSearch as OutlineSearchIcon } from "react-icons/cg";
 import { FaSearch as SearchIcon } from "react-icons/fa";
