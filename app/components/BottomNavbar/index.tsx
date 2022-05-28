@@ -38,14 +38,14 @@ export default function BottomNavbar() {
 	const location = useLocation();
 
 	return (
-		<nav className="dark:bg-white fixed bottom-0 left-0h-16 w-full border-t border-slate-400">
+		<nav className="bg-white dark:bg-slate-700 fixed bottom-0 left-0h-16 w-full border-t border-slate-400 dark:border-none">
 			<ol className="w-full flex justify-around items-center h-14">
 				{NAVBAR_LINKS.map((link) => {
 					const { ActiveIcon, Icon, to } = link;
 					const isActive = location.pathname === link.to;
 
 					return (
-						<Link key={to} to={to}>
+						<Link key={to} to={to} className="dark:text-white">
 							{isActive ? <ActiveIcon size={24} /> : <Icon size={24} />}
 						</Link>
 					);
