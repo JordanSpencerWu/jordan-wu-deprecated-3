@@ -27,6 +27,10 @@ export const links: LinksFunction = () => {
 			rel: "stylesheet",
 			href: "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
 		},
+		{
+			rel: "stylesheet",
+			href: "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css",
+		},
 	];
 };
 
@@ -67,13 +71,13 @@ export default function App() {
 				<Links />
 			</head>
 			<body className="bg-white dark:bg-slate-900 min-h-screen w-full relative flex flex-col overflow-x-hidden animate-fade-in">
-				<animated.div style={fadeInStyles} className="flex flex-col flex-1 mb-14">
-					<Navbar />
-					<main className="flex flex-1 p-2">
-						<Outlet />
-					</main>
-				</animated.div>
-				<BottomNavbar />
+				{/* <animated.div style={fadeInStyles} className="flex flex-col flex-1 mb-14"> */}
+				{/* <Navbar /> */}
+				<main>
+					<Outlet />
+				</main>
+				{/* </animated.div> */}
+				{/* <BottomNavbar /> */}
 				<ScrollRestoration />
 				<Scripts />
 				{process.env.NODE_ENV === "development" && <LiveReload />}
