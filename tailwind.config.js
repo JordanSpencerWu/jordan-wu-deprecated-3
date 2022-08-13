@@ -2,6 +2,9 @@ module.exports = {
 	content: ["./app/**/*.{ts,tsx,jsx,js}"],
 	darkMode: "class",
 	theme: {
+		colors: {
+			"nav-border-color": "rgb(219, 219, 219)",
+		},
 		extend: {
 			keyframes: {
 				"fade-in": {

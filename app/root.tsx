@@ -70,14 +70,14 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-white dark:bg-slate-900 min-h-screen w-full relative flex flex-col overflow-x-hidden animate-fade-in">
-				{/* <animated.div style={fadeInStyles} className="flex flex-col flex-1 mb-14"> */}
-				{/* <Navbar /> */}
-				<main>
-					<Outlet />
-				</main>
-				{/* </animated.div> */}
-				{/* <BottomNavbar /> */}
+			<body className="bg-white min-h-screen w-full relative flex flex-col overflow-x-hidden animate-fade-in">
+				<animated.div style={fadeInStyles} className="flex flex-col flex-1 mb-14">
+					<Navbar />
+					<main>
+						<Outlet />
+					</main>
+				</animated.div>
+				<BottomNavbar />
 				<ScrollRestoration />
 				<Scripts />
 				{process.env.NODE_ENV === "development" && <LiveReload />}
