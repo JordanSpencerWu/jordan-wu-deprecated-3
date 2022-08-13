@@ -60,7 +60,7 @@ export default function App() {
 			springApi.start(FADE_IN_SPRING_PROPS);
 			setCurrentPathname(location.pathname);
 		}
-	}, [location]);
+	}, [location, currentPathname, springApi]);
 
 	return (
 		<html lang="en">

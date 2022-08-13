@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const THEME = "theme";
 export const DARK_MODE = "dark";
