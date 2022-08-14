@@ -12,6 +12,7 @@ specifiers:
   '@types/react-icons': ^3.0.0
   '@vercel/node': ^1.15.2
   autoprefixer: ^10.4.2
+  classnames: ^2.3.1
   concurrently: ^7.0.0
   eslint: ^8.21.0
   husky: ^7.0.4
@@ -21,6 +22,7 @@ specifiers:
   react: ^17.0.2
   react-dom: ^17.0.2
   react-icons: ^4.3.1
+  react-spinners: ^0.13.4
   react-spring: ^9.4.4
   tailwindcss: ^3.0.22
   typescript: ^4.1.2
@@ -30,9 +32,11 @@ dependencies:
   '@remix-run/react': 1.5.1_sfoxds7t5ydpegc3knd667wn6m
   '@remix-run/vercel': 1.5.1_k6hruc77s5hpaeubsncsxur3qu
   '@vercel/node': 1.15.3
+  classnames: 2.3.1
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
+  react-spinners: 0.13.4_sfoxds7t5ydpegc3knd667wn6m
   react-spring: 9.4.4_sfoxds7t5ydpegc3knd667wn6m
 
 devDependencies:
@@ -2031,6 +2035,10 @@ packages:
       isobject: 3.0.1
       static-extend: 0.1.2
     dev: true
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -5962,6 +5970,16 @@ packages:
     dependencies:
       history: 5.3.0
       react: 17.0.2
+
+  /react-spinners/0.13.4_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-V6IURjYOwomhdngMfuVxBp4utCF6v21sjQ6r4K2JoKl8fwXZp1UeHMBLf+2SU+cts8hAVj9rHOJ8kdT5UqqaJw==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /react-spring/9.4.4_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-VOqilh9DJBsS6Pf550YLhdReS3j9a2AQVh7NcsNtWoxTYIeuErWi6ym0++6bBhQp4yT5xvVvUDaJ8ez8vrFgaw==}

@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
 	return (
 		<div className="relative w-full h-full flex flex-col justify-center items-center p-6">
-			<blockquote className="p-6 border-l-8 border-black border-solid text-2xl -translate-y-4">
+			<blockquote className="p-6 border-l-8 border-black border-solid text-2xl -translate-y-8">
 				<p className="font-['Gelasio'] font-bold italic">
 					My dream is to be one of the greatest music producer and DJ that ever lived.
 				</p>
