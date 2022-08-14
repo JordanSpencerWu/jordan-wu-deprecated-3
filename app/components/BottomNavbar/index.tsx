@@ -38,7 +38,7 @@ export default function BottomNavbar() {
 	const location = useLocation();
 
 	return (
-		<nav className="fixed bottom-0 left-0 h-[60px] w-full bg-white border-t border-nav-border-color border-solid">
+		<nav className="z-[1] fixed bottom-0 left-0 h-[60px] w-full bg-white border-t border-nav-border-color border-solid">
 			<ol className="w-full h-full flex justify-around items-center">
 				{NAVBAR_LINKS.map((link) => {
 					const { ActiveIcon, Icon, to } = link;

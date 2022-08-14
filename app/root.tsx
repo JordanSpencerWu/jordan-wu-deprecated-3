@@ -29,6 +29,14 @@ export const links: LinksFunction = () => {
 		},
 		{
 			rel: "stylesheet",
+			href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap",
+		},
+		{
+			rel: "stylesheet",
+			href: "https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,700;1,400;1,700&display=swap",
+		},
+		{
+			rel: "stylesheet",
 			href: "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css",
 		},
 	];
@@ -70,10 +78,10 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-white min-h-screen w-full relative flex flex-col overflow-x-hidden animate-fade-in">
-				<animated.div style={fadeInStyles} className="flex flex-col flex-1 mb-14">
+			<body className="bg-white min-h-screen w-full h-screen relative flex flex-col overflow-x-hidden animate-fade-in">
+				<animated.div style={fadeInStyles} className="flex flex-col flex-1">
 					<Navbar />
-					<main>
+					<main className="my-[60px] h-full w-full">
 						<Outlet />
 					</main>
 				</animated.div>

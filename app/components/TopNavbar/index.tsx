@@ -1,8 +1,7 @@
-import { Link, useLocation } from "@remix-run/react";
+import { useLocation } from "@remix-run/react";
 // import { MdOutlineWbSunny as LightModeIcon, MdModeNight as DarkModeIcon } from "react-icons/md";
 
 // import useDarkMode, { DARK_MODE, LIGHT_MODE } from "../../hooks/useDarkMode";
-import pathTo from "../../utils/pathTo";
 import pathToName from "../../utils/pathToName";
 
 export default function Navbar() {
@@ -14,10 +13,8 @@ export default function Navbar() {
 	const pathName = pathToName[location.pathname];
 
 	return (
-		<div className="fixed top-0 left-0 h-[60px] w-full px-2 border-b border-nav-border-color border-solid flex items-center justify-between">
-			<Link className="text-slate-900 font-bold text-3xl" to={pathTo.home}>
-				{pathName}
-			</Link>
+		<div className="z-[1] fixed top-0 left-0 h-[60px] w-full px-2 border-b border-nav-border-color border-solid flex items-center justify-between">
+			<div className="text-slate-900 font-bold text-2xl font-['Open_Sans']">{pathName}</div>
 			{/* <button type="button">
 				{showLightMode && <LightModeIcon size={24} className="animate-fade-in" onClick={toggleDarkMode} />}
 				{showDarkMode && (
