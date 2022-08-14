@@ -13,7 +13,7 @@ export default function Navbar() {
 	const pathName = pathToName[location.pathname];
 
 	return (
-		<div className="z-[1] fixed top-0 left-0 h-[60px] w-full px-2 border-b border-nav-border-color border-solid flex items-center justify-between">
+		<div className="bg-white z-[1] fixed top-0 left-0 h-[60px] w-full px-2 border-b border-nav-border-color border-solid flex items-center justify-between">
 			<div className="text-slate-900 font-bold text-2xl font-['Open_Sans']">{pathName}</div>
 			{/* <button type="button">
 				{showLightMode && <LightModeIcon size={24} className="animate-fade-in" onClick={toggleDarkMode} />}
