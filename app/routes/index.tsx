@@ -1,5 +1,7 @@
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 
+import BlogPostItem from "../components/BlogPostItem";
+
 export const meta: MetaFunction = () => {
 	return { title: "Jordan Wu | Home" };
 };
@@ -11,5 +13,11 @@ export const headers: HeadersFunction = () => {
 };
 
 export default function Index() {
-	return <div className="w-screen h-screen flex"></div>;
+	return (
+		<div className="w-screen flex mb-[60px]">
+			<ol className="w-full">
+				<BlogPostItem />
+			</ol>
+		</div>
+	);
 }
