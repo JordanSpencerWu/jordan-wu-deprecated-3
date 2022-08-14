@@ -1,10 +1,16 @@
 import { useState } from "react";
-import type { MetaFunction } from "@remix-run/node";
+import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 import classNames from "classnames";
 import FadeLoader from "react-spinners/FadeLoader";
 
 export const meta: MetaFunction = () => {
 	return { title: "Jordan Wu | Playlist" };
+};
+
+export const headers: HeadersFunction = () => {
+	return {
+		"Cache-Control": `public, max-age=${60 * 60 * 24}`,
+	};
 };
 
 export default function Index() {
