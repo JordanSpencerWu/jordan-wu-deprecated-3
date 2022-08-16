@@ -1,4 +1,4 @@
-import pathTo from "./pathTo";
+import pathTo from "~/utils/pathTo";
 
 export default {
 	[pathTo.about]: "About",

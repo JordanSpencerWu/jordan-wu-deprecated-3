@@ -3,9 +3,9 @@ import { useLoaderData } from "@remix-run/react";
 
 import * as creatingMyWebsite from "./posts/creating-my-website-with-remix.mdx";
 
-import BlogPostItem from "../components/BlogPostItem";
-import postFromModule from "../utils/postFromModule";
-import type { PostMeta } from "../utils/postFromModule";
+import BlogPostItem from "~/components/BlogPostItem";
+import postFromModule from "~/utils/postFromModule";
+import type { PostMeta } from "~/utils/postFromModule";
 
 export const meta: MetaFunction = () => {
 	return { title: "Jordan Wu | Home" };

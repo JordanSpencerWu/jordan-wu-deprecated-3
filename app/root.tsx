@@ -3,10 +3,10 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLocatio
 import type { LinksFunction } from "@remix-run/node";
 import { useSpring, animated } from "react-spring";
 
-import Navbar from "./components/TopNavbar";
-import BottomNavbar from "./components/BottomNavbar";
-import { DARK_MODE, THEME } from "./hooks/useDarkMode";
-import styles from "./tailwind.css";
+import Navbar from "~/components/TopNavbar";
+import BottomNavbar from "~/components/BottomNavbar";
+import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
+import styles from "~/tailwind.css";
 
 export const links: LinksFunction = () => {
 	return [

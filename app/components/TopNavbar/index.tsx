@@ -3,7 +3,7 @@ import { MdArrowBack } from "react-icons/md";
 // import { MdOutlineWbSunny as LightModeIcon, MdModeNight as DarkModeIcon } from "react-icons/md";
 
 // import useDarkMode, { DARK_MODE, LIGHT_MODE } from "../../hooks/useDarkMode";
-import pathToName from "../../utils/pathToName";
+import pathToName from "~/utils/pathToName";
 
 export default function Navbar() {
 	// const [darkMode, toggleDarkMode] = useDarkMode();

@@ -1,8 +1,8 @@
 import { useNavigate } from "@remix-run/react";
 import dayjs from "dayjs";
 
-import Avatar from "../Avatar";
-import type { PostMeta } from "../../utils/postFromModule";
+import Avatar from "~/components/Avatar";
+import type { PostMeta } from "~/utils/postFromModule";
 
 type Props = PostMeta;
 

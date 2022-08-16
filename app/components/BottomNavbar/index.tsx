@@ -8,9 +8,8 @@ import {
 	MdInfo as AboutIcon,
 	MdInfoOutline as OutlineAboutIcon,
 } from "react-icons/md";
-import { Location } from "history";
 
-import pathTo from "../../utils/pathTo";
+import pathTo from "~/utils/pathTo";
 
 const NAVBAR_LINKS = [
 	{
