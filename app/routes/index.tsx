@@ -19,14 +19,23 @@ export const headers: HeadersFunction = () => {
 };
 
 export async function loader() {
-	return json([postFromModule(creatingMyWebsite)]);
+	return json([
+		postFromModule(creatingMyWebsite),
+		postFromModule(creatingMyWebsite),
+		postFromModule(creatingMyWebsite),
+		postFromModule(creatingMyWebsite),
+		postFromModule(creatingMyWebsite),
+		postFromModule(creatingMyWebsite),
+		postFromModule(creatingMyWebsite),
+		postFromModule(creatingMyWebsite),
+	]);
 }
 
 export default function Index() {
 	const posts: PostMeta[] = useLoaderData();
 
 	return (
-		<div className="w-screen flex mb-[60px]">
+		<div className="w-screen flex">
 			<ul className="w-full">
 				{posts.map((post) => (
 					<BlogPostItem key={post.slug} {...post} />
