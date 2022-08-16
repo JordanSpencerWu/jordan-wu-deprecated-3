@@ -78,8 +78,8 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-white min-h-screen w-full h-screen relative flex flex-col overflow-x-hidden animate-fade-in">
-				<animated.div style={fadeInStyles} className="flex flex-col flex-1">
+			<body className="bg-white min-h-screen w-screen h-screen relative flex flex-col overflow-x-hidden animate-fade-in">
+				<animated.div style={fadeInStyles} className="w-full flex flex-col flex-1">
 					<Navbar />
 					<main className="my-[60px] h-full w-full">
 						<Outlet />
