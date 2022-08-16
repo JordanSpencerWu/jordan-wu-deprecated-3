@@ -1,5 +1,8 @@
 import { NavLink, useLocation } from "@remix-run/react";
-import { AiFillHome as HomeIcon, AiOutlineHome as OutlineHomeIcon } from "react-icons/ai";
+import {
+	AiFillHome as HomeIcon,
+	AiOutlineHome as OutlineHomeIcon,
+} from "react-icons/ai";
 import { CgSearch as OutlineSearchIcon } from "react-icons/cg";
 import { FaSearch as SearchIcon } from "react-icons/fa";
 import {
@@ -48,7 +51,8 @@ export default function BottomNavbar() {
 			<ol className="w-full h-full flex justify-around items-center">
 				{NAVBAR_LINKS.map((link) => {
 					const { ActiveIcon, Icon, to } = link;
-					const isActive = location.pathname === link.to || previousPathname === link.to;
+					const isActive =
+						location.pathname === link.to || previousPathname === link.to;
 
 					return (
 						<NavLink key={to} to={to}>

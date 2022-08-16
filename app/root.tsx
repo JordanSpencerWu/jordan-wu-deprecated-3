@@ -10,6 +10,7 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import { useSpring, animated } from "react-spring";
+import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 
 import Navbar from "~/components/TopNavbar";
 import BottomNavbar from "~/components/BottomNavbar";
@@ -18,6 +19,10 @@ import styles from "~/tailwind.css";
 
 export const links: LinksFunction = () => {
 	return [
+		{
+			rel: "stylesheet",
+			href: highlightStyles,
+		},
 		{
 			rel: "stylesheet",
 			href: styles,

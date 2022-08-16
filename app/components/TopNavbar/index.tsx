@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "@remix-run/react";
 import { MdArrowBack } from "react-icons/md";
+import classNames from "classnames";
 // import { MdOutlineWbSunny as LightModeIcon, MdModeNight as DarkModeIcon } from "react-icons/md";
 
 // import useDarkMode, { DARK_MODE, LIGHT_MODE } from "../../hooks/useDarkMode";
@@ -18,10 +19,19 @@ export default function Navbar() {
 		navigate(-1);
 	}
 
+	const containerClass = classNames(
+		"bg-white z-[1] top-0 left-0 h-[60px] w-full px-[16px] border-b border-nav-border-color border-solid flex items-center justify-between",
+		{
+			fixed: Boolean(pathName),
+		}
+	);
+
 	return (
-		<div className="bg-white z-[1] fixed top-0 left-0 h-[60px] w-full px-2 border-b border-nav-border-color border-solid flex items-center justify-between">
+		<div className={containerClass}>
 			{pathName ? (
-				<div className="text-slate-900 font-bold text-2xl font-['Open_Sans']">{pathName}</div>
+				<div className="text-slate-900 font-bold text-2xl font-['Open_Sans']">
+					{pathName}
+				</div>
 			) : (
 				<MdArrowBack size={24} onClick={handleClick} />
 			)}
