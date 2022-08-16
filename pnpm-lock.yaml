@@ -14,6 +14,7 @@ specifiers:
   autoprefixer: ^10.4.2
   classnames: ^2.3.1
   concurrently: ^7.0.0
+  dayjs: ^1.11.5
   eslint: ^8.21.0
   husky: ^7.0.4
   lint-staged: ^12.3.4
@@ -33,6 +34,7 @@ dependencies:
   '@remix-run/vercel': 1.5.1_k6hruc77s5hpaeubsncsxur3qu
   '@vercel/node': 1.15.3
   classnames: 2.3.1
+  dayjs: 1.11.5
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
@@ -2288,6 +2290,10 @@ packages:
     resolution: {integrity: sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==}
     engines: {node: '>=0.11'}
     dev: true
+
+  /dayjs/1.11.5:
+    resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
+    dev: false
 
   /deasync/0.1.24:
     resolution: {integrity: sha512-i98vg42xNfRZCymummMAN0rIcQ1gZFinSe3btvPIvy6JFTaeHcumeKybRo2HTv86nasfmT0nEgAn2ggLZhOCVA==}
