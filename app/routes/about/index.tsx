@@ -19,22 +19,47 @@ export default function Index() {
 									 before:mb-[-4px] before:mt-4"
 			>
 				<p className="font-['Gelasio'] font-bold italic">
-					My dream is to be one of the greatest music producer and DJ that ever lived.
+					My dream is to be one of the greatest music producer and DJ that ever
+					lived.
 				</p>
-				<p className="mt-2 font-['Open_Sans'] text-right font-bold before:content-['\2014\0020']">Jordan Wu</p>
+				<p className="mt-2 font-['Open_Sans'] text-right font-bold before:content-['\2014\0020']">
+					Jordan Wu
+				</p>
 			</blockquote>
 			<div className="fixed bottom-20 mt-4 flex justify-evenly w-8/12">
-				<a href="https://www.instagram.com/jordanwu.xyz/" target="_blank">
-					<img alt="instagram icon" src="/instagram.svg" height="32" width="32" />
+				<a
+					href="https://www.instagram.com/jordanwu.xyz/"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img
+						alt="instagram icon"
+						src="/instagram.svg"
+						height="32"
+						width="32"
+					/>
 				</a>
-				<a href="https://twitter.com" target="_blank">
+				<a href="https://twitter.com" target="_blank" rel="noreferrer">
 					<img alt="twitter icon" src="/twitter.svg" height="32" width="32" />
 				</a>
-				<a href="https://www.youtube.com/channel/UCHu47XImxsir745HDcab30g" target="_blank">
+				<a
+					href="https://www.youtube.com/channel/UCHu47XImxsir745HDcab30g"
+					rel="noreferrer"
+					target="_blank"
+				>
 					<img alt="youtube icon" src="/youtube.svg" height="32" width="32" />
 				</a>
-				<a href="https://soundcloud.com/jordanwu_xyz" target="_blank">
-					<img alt="soundcloud icon" src="/sound-cloud.svg" height="32" width="32" />
+				<a
+					href="https://soundcloud.com/jordanwu_xyz"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img
+						alt="soundcloud icon"
+						src="/sound-cloud.svg"
+						height="32"
+						width="32"
+					/>
 				</a>
 			</div>
 		</div>

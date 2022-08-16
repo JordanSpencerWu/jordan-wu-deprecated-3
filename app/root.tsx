@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from "@remix-run/react";
+import {
+	Links,
+	LiveReload,
+	Meta,
+	Outlet,
+	Scripts,
+	ScrollRestoration,
+	useLocation,
+} from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import { useSpring, animated } from "react-spring";
 
@@ -55,7 +63,8 @@ export default function App() {
 	useEffect(() => {
 		if (
 			localStorage.theme === DARK_MODE ||
-			(!(THEME in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+			(!(THEME in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
 		) {
 			document.documentElement.classList.add(DARK_MODE);
 		} else {
@@ -78,8 +87,11 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-white min-h-screen w-screen h-screen relative flex flex-col overflow-x-hidden animate-fade-in">
-				<animated.div style={fadeInStyles} className="w-full flex flex-col flex-1">
+			<body className="bg-white min-h-screen w-screen h-screen relative flex flex-col overflow-x-hidde animate-fade-in">
+				<animated.div
+					style={fadeInStyles}
+					className="w-full flex flex-col flex-1"
+				>
 					<Navbar />
 					<main className="my-[60px] h-full w-full">
 						<Outlet />
@@ -91,5 +103,16 @@ export default function App() {
 				{process.env.NODE_ENV === "development" && <LiveReload />}
 			</body>
 		</html>
+	);
+}
+
+export function ErrorBoundary({ error }) {
+	return (
+		<div>
+			<h1>Error</h1>
+			<p>{error.message}</p>
+			<p>The stack trace is:</p>
+			<pre>{error.stack}</pre>
+		</div>
 	);
 }

@@ -28,6 +28,7 @@ export default function Index() {
 		<div className="w-full h-full flex justify-center items-center px-4 py-2">
 			{!showPlaylist && <FadeLoader />}
 			<iframe
+				title="Spotify Playlist"
 				className={playlistClass}
 				src="https://open.spotify.com/embed/playlist/6msHe48KiYyqaTeq45aXR6?utm_source=generator&view=coverart"
 				width="100%"
