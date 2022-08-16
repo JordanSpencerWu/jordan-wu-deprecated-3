@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
-import {
-	Links,
-	LiveReload,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-	useLocation,
-} from "@remix-run/react";
+import { Outlet, useNavigate } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-import { useSpring, animated } from "react-spring";
+import { useLocation } from "@remix-run/react";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
+import classNames from "classnames";
 
-import Navbar from "~/components/TopNavbar";
-import BottomNavbar from "~/components/BottomNavbar";
-import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
+// import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
 import styles from "~/tailwind.css";
+import pathToName from "~/utils/pathToName";
+import Document from "~/components/Document";
+import Layout from "~/components/Layout";
+import pathTo from "./utils/pathTo";
 
 export const links: LinksFunction = () => {
 	return [
@@ -55,69 +49,54 @@ export const links: LinksFunction = () => {
 	];
 };
 
-const FADE_IN_SPRING_PROPS = {
-	to: { opacity: 1 },
-	from: { opacity: 0 },
-};
-
 export default function App() {
-	const [fadeInStyles, springApi] = useSpring(() => FADE_IN_SPRING_PROPS);
 	const location = useLocation();
-	const [currentPathname, setCurrentPathname] = useState(location.pathname);
+	// useEffect(() => {
+	// 	if (
+	// 		localStorage.theme === DARK_MODE ||
+	// 		(!(THEME in localStorage) &&
+	// 			window.matchMedia("(prefers-color-scheme: dark)").matches)
+	// 	) {
+	// 		document.documentElement.classList.add(DARK_MODE);
+	// 	} else {
+	// 		document.documentElement.classList.remove(DARK_MODE);
+	// 	}
+	// }, []);
 
-	useEffect(() => {
-		if (
-			localStorage.theme === DARK_MODE ||
-			(!(THEME in localStorage) &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches)
-		) {
-			document.documentElement.classList.add(DARK_MODE);
-		} else {
-			document.documentElement.classList.remove(DARK_MODE);
-		}
-	}, []);
+	const pathName = pathToName[location.pathname];
 
-	useEffect(() => {
-		if (location.pathname !== currentPathname) {
-			springApi.start(FADE_IN_SPRING_PROPS);
-			setCurrentPathname(location.pathname);
-		}
-	}, [location, currentPathname, springApi]);
+	const mainClass = classNames("h-full w-full mb-[60px]", {
+		"mt-[60px]": Boolean(pathName),
+	});
 
 	return (
-		<html lang="en">
-			<head>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width,initial-scale=1" />
-				<Meta />
-				<Links />
-			</head>
-			<body className="bg-white min-h-screen w-screen h-screen relative flex flex-col overflow-x-hidde animate-fade-in">
-				<animated.div
-					style={fadeInStyles}
-					className="w-full flex flex-col flex-1"
-				>
-					<Navbar />
-					<main className="my-[60px] h-full w-full">
-						<Outlet />
-					</main>
-				</animated.div>
-				<BottomNavbar />
-				<ScrollRestoration />
-				<Scripts />
-				{process.env.NODE_ENV === "development" && <LiveReload />}
-			</body>
-		</html>
+		<Document>
+			<Layout>
+				<main className={mainClass}>
+					<Outlet />
+				</main>
+			</Layout>
+		</Document>
 	);
 }
 
-export function ErrorBoundary({ error }) {
+export function ErrorBoundary({ error }: { error: Error }) {
+	const navigate = useNavigate();
+
+	setTimeout(() => {
+		navigate(pathTo.home);
+	}, 3000);
+
 	return (
-		<div>
-			<h1>Error</h1>
-			<p>{error.message}</p>
-			<p>The stack trace is:</p>
-			<pre>{error.stack}</pre>
-		</div>
+		<Document>
+			<Layout>
+				<main className="h-full w-full my-[60px]">
+					<div className="h-full flex flex-col justify-center items-center">
+						<p className="text-2xl font-bold">Oops! An error has occurred.</p>
+						<p className="text-xl">Redirecting back to Home...</p>
+					</div>
+				</main>
+			</Layout>
+		</Document>
 	);
 }
