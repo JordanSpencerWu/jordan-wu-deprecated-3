@@ -37,8 +37,8 @@ export default function Index() {
 	return (
 		<div className="w-screen flex">
 			<ul className="w-full">
-				{posts.map((post) => (
-					<BlogPostItem key={post.slug} {...post} />
+				{posts.map((post, index) => (
+					<BlogPostItem key={index} {...post} />
 				))}
 			</ul>
 		</div>

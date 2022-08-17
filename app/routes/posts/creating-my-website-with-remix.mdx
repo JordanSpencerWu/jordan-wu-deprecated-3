@@ -1,9 +1,9 @@
 ---
 meta:
   author: Jordan Wu
-  authorAvatar: https://placekitten.com/g/300/300
-  postImage: https://placekitten.com/g/100/62
-  published: 2022-06-13
+  authorAvatarUrl: https://placekitten.com/g/300/300
+  postImageUrl: https://placekitten.com/g/320/240
+  published: 2022-08-18
   readingTimeInMinute: 10
   title: Creating My Website With Remix
 
@@ -11,7 +11,13 @@ headers:
   Cache-Control: no-cache
 ---
 
-## {attributes.title}
+import BlogPostHeading from "~/components/BlogPostHeading";
+
+<BlogPostHeading {...attributes.meta} />
+
+## {attributes.meta.title}
+
+<img src={attributes.meta.postImageUrl} class="object-contain w-full rounded" />
 
 ### First of all how did I get this page to render?
 
@@ -34,7 +40,9 @@ To achieve this first of all I had to update the base `remix.config.js` to now h
 module.exports = {
 	// ... existing config here
 	mdx: async (filename) => {
-		const [rehypeHighlight] = await Promise.all([import("rehype-highlight").then((mod) => mod.default)]);
+		const [rehypeHighlight] = await Promise.all([
+			import("rehype-highlight").then((mod) => mod.default),
+		]);
 		return {
 			rehypePlugins: [rehypeHighlight],
 		};

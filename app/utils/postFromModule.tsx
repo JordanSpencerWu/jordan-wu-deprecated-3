@@ -1,7 +1,7 @@
 type Meta = {
 	author: string;
-	authorAvatar: string;
-	postImage: string;
+	authorAvatarUrl: string;
+	postImageUrl: string;
 	published: string;
 	readingTimeInMinute: number;
 	title: string;

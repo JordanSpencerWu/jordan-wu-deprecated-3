@@ -22,7 +22,7 @@ export default function Navbar() {
 	const containerClass = classNames(
 		"bg-white z-[1] top-0 left-0 h-[60px] w-full px-[16px] border-b border-nav-border-color border-solid flex items-center justify-between",
 		{
-			fixed: Boolean(pathName),
+			absolute: Boolean(pathName),
 		}
 	);
 
