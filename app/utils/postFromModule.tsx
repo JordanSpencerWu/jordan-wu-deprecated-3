@@ -4,6 +4,7 @@ type Meta = {
 	postImageUrl: string;
 	published: string;
 	readingTimeInMinute: number;
+	tags: string[];
 	title: string;
 };
 
