@@ -5,6 +5,7 @@ import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import classNames from "classnames";
 
 // import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
+import SearchProvider from "~/providers/SearchProvider";
 import styles from "~/tailwind.css";
 import pathToName from "~/utils/pathToName";
 import Document from "~/components/Document";
@@ -71,11 +72,13 @@ export default function App() {
 
 	return (
 		<Document>
-			<Layout>
-				<main className={mainClass}>
-					<Outlet />
-				</main>
-			</Layout>
+			<SearchProvider>
+				<Layout>
+					<main className={mainClass}>
+						<Outlet />
+					</main>
+				</Layout>
+			</SearchProvider>
 		</Document>
 	);
 }

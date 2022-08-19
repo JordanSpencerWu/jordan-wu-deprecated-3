@@ -1,12 +1,13 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { json } from "@remix-run/node";
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData, useSearchParams } from "@remix-run/react";
-import Fuse from "fuse.js";
+import { useLoaderData } from "@remix-run/react";
+import { Search } from "js-search";
 
 import BlogPostItem from "~/components/BlogPostItem";
 import posts from "~/utils/posts";
 import type { PostMeta } from "~/utils/posts";
+import { SearchContext } from "~/providers/SearchProvider";
 
 export const meta: MetaFunction = () => {
 	return { title: "Jordan Wu | Search" };
@@ -24,27 +25,25 @@ export async function loader() {
 
 export default function Index() {
 	const posts: PostMeta[] = useLoaderData();
-	let [searchParams] = useSearchParams();
+	const [searchTerm] = useContext(SearchContext);
 
-	const searchTerm = searchParams.get("q") || "";
+	const search = useMemo(() => {
+		const search = new Search("slug");
+		search.addIndex("title");
 
-	const fuse = useMemo(() => {
-		const options = {
-			isCaseSensitive: true,
-			shouldSort: false,
-			minMatchCharLength: 1,
-			keys: ["title"],
-		};
+		posts.forEach((post) => {
+			search.addDocument(post);
+		});
 
-		return new Fuse(posts, options);
+		return search;
 	}, [posts]);
 
 	let displayPosts = posts;
 
 	if (searchTerm) {
-		const searchedPosts = fuse.search(searchTerm);
+		const searchedPosts = search.search(searchTerm);
 
-		displayPosts = searchedPosts.map((p) => p.item);
+		displayPosts = searchedPosts;
 	}
 
 	return (

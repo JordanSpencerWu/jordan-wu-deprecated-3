@@ -1,20 +1,22 @@
-import type { ChangeEvent } from "react";
+import { useContext } from "react";
 import { useLocation, useNavigate, useSearchParams } from "@remix-run/react";
 import { MdArrowBack, MdClose } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import classNames from "classnames";
 // import { MdOutlineWbSunny as LightModeIcon, MdModeNight as DarkModeIcon } from "react-icons/md";
 
+import type { ChangeEvent } from "react";
+
 // import useDarkMode, { DARK_MODE, LIGHT_MODE } from "../../hooks/useDarkMode";
 import pathToName, { SEARCH_PATH_NAME } from "~/utils/pathToName";
+import { SearchContext } from "~/providers/SearchProvider";
 
 export default function Navbar() {
 	// const [darkMode, toggleDarkMode] = useDarkMode();
-	let [searchParams, setSearchParams] = useSearchParams();
+	const [searchTerm, setSearchTerm] = useContext(SearchContext);
+	let [_, setSearchParams] = useSearchParams();
 	const location = useLocation();
 	const navigate = useNavigate();
-
-	const searchTerm = searchParams.get("q") || "";
 
 	// const showLightMode = darkMode === LIGHT_MODE;
 	// const showDarkMode = darkMode === DARK_MODE;
@@ -37,6 +39,7 @@ export default function Navbar() {
 		const params = new URLSearchParams(queryString);
 
 		setSearchParams(params);
+		setSearchTerm(value);
 	}
 
 	if (pathName === SEARCH_PATH_NAME) {
@@ -46,6 +49,7 @@ export default function Navbar() {
 			const params = new URLSearchParams("");
 
 			setSearchParams(params);
+			setSearchTerm("");
 		}
 
 		return (

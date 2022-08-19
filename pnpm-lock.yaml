@@ -17,9 +17,9 @@ specifiers:
   concurrently: ^7.0.0
   dayjs: ^1.11.5
   eslint: ^8.21.0
-  fuse.js: ^6.6.2
   highlight.js: ^11.6.0
   husky: ^7.0.4
+  js-search: ^2.0.0
   lint-staged: ^12.3.4
   postcss: ^8.4.6
   prettier: 2.5.1
@@ -39,8 +39,8 @@ dependencies:
   '@vercel/node': 1.15.3
   classnames: 2.3.1
   dayjs: 1.11.5
-  fuse.js: 6.6.2
   highlight.js: 11.6.0
+  js-search: 2.0.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.4.0_react@17.0.2
@@ -3670,11 +3670,6 @@ packages:
   /functions-have-names/1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  /fuse.js/6.6.2:
-    resolution: {integrity: sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==}
-    engines: {node: '>=10'}
-    dev: false
-
   /gensync/1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
@@ -4384,6 +4379,10 @@ packages:
     resolution: {integrity: sha1-TkMekrEalzFjaqH5yNHMvP2reN8=}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /js-search/2.0.0:
+    resolution: {integrity: sha512-lJ8KzjlwcelIWuAdKyzsXv45W6OIwRpayzc7XmU8mzgWadg5UVOKVmnq/tXudddEB9Ceic3tVaGu6QOK/eebhg==}
+    dev: false
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
