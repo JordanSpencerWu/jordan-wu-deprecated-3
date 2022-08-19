@@ -13,8 +13,6 @@ module.exports = {
 	theme: {
 		colors: {
 			"nav-border-color": "rgb(219, 219, 219)",
-			"search-bg-color": "rgb(237, 236, 237)",
-			"search-color": "rgb(131, 131, 131)",
 			...colors,
 		},
 		extend: {

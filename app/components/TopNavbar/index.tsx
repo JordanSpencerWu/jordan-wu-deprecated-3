@@ -1,6 +1,5 @@
-import { useState } from "react";
 import type { ChangeEvent } from "react";
-import { useLocation, useNavigate } from "@remix-run/react";
+import { useLocation, useNavigate, useSearchParams } from "@remix-run/react";
 import { MdArrowBack, MdClose } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import classNames from "classnames";
@@ -11,9 +10,11 @@ import pathToName, { SEARCH_PATH_NAME } from "~/utils/pathToName";
 
 export default function Navbar() {
 	// const [darkMode, toggleDarkMode] = useDarkMode();
-	const [searchTerm, setSearchTerm] = useState("");
+	let [searchParams, setSearchParams] = useSearchParams();
 	const location = useLocation();
 	const navigate = useNavigate();
+
+	const searchTerm = searchParams.get("q") || "";
 
 	// const showLightMode = darkMode === LIGHT_MODE;
 	// const showDarkMode = darkMode === DARK_MODE;
@@ -31,19 +32,25 @@ export default function Navbar() {
 	);
 
 	function handleSearch(event: ChangeEvent<HTMLInputElement>) {
-		setSearchTerm(event.target.value);
+		const value = event.target.value;
+		const queryString = value ? `q=${value}` : "";
+		const params = new URLSearchParams(queryString);
+
+		setSearchParams(params);
 	}
 
 	if (pathName === SEARCH_PATH_NAME) {
 		const showCloseIcon = searchTerm !== "";
 
 		function handleClearSearch() {
-			setSearchTerm("");
+			const params = new URLSearchParams("");
+
+			setSearchParams(params);
 		}
 
 		return (
 			<div className={containerClass}>
-				<div className="h-[40px] w-full m-0 p-[16px] flex items-center text-lg font-semibold rounded-lg bg-search-bg-color text-search-color">
+				<div className="h-[40px] w-full m-0 p-[16px] flex items-center text-lg font-semibold rounded-lg bg-[#edeced] text-[#838383]">
 					<BsSearch size={18} fill="#838383" />
 					<div className="pl-[12px] relative flex grow items-center">
 						<input

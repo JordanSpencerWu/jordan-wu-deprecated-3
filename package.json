@@ -20,6 +20,7 @@
     "@vercel/node": "^1.15.2",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.5",
+    "fuse.js": "^6.6.2",
     "highlight.js": "^11.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

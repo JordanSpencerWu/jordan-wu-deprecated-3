@@ -1,0 +1,109 @@
+---
+meta:
+  author: Jordan Wu
+  authorAvatarUrl: https://placekitten.com/g/300/300
+  postImageUrl: https://placekitten.com/g/320/240
+  published: 2022-07-18
+  readingTimeInMinute: 10
+  tags: ["web development"]
+  title: How To Add MathJax To Your Gatsby Website
+
+headers:
+  Cache-Control: no-cache
+---
+
+import BlogPostHeading from "~/components/BlogPostHeading";
+
+<BlogPostHeading {...attributes.meta} />
+
+## {attributes.meta.title}
+
+<img
+	src={attributes.meta.postImageUrl}
+	className="object-contain w-full rounded"
+/>
+
+If you want to write beautiful math equations on your website and you're using Gatsby. This is the tutorial for you! In this blog post I will show how to get started.
+
+### Getting Started
+
+First you would need to download the required Gatsby plugins that you can find in their plugin's library.
+
+```
+npm install --save gatsby-transformer-remark gatsby-remark-mathjax
+```
+
+After downloading the required dependencies, you need to include the plugin in your `plugins` option in your `gatsby-config.js` file.
+
+```javascript
+// in your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        `gatsby-remark-mathjax`,
+      ],
+    },
+  },
+],
+```
+
+Notice that it's inside your `gatsby-transformer-remark` plugin, it's used along with our markdown plugin. You probably think that is all you have to do to get beautiful math equations on your web page... That was what I thought after going through this process on the `gatsby-remark-mathjax` plugin documentation.
+
+Unfortunately, there's a few more steps before we can write the quadratic formula, we all know and love.
+
+We have to download the MathJax library, there are a few ways to do this. I prefer using the CDN which stands for Content Delivery Network. This allows us to download files from the web using a `script` tag in our `head` element.
+
+Let's get to it! If you went through the Gatsby tutorial, you would know we use `react-helmet` to add scripts into our `head` element. To add our CDN script we will be using the `script` property that the `Helmet` component has. This property takes in an array of scripts, so let's define our array.
+
+```javascript
+const scripts = [
+	{
+		type: "text/x-mathjax-config",
+		innerHTML: `
+    window.MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      tex2jax: {preview: "none"}
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] },
+    messageStyle: "none"
+  });`,
+	},
+	{
+		type: `text/javascript`,
+		src: `https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML`,
+	},
+];
+```
+
+The first element in the array is our MathJax configuration settings which allow us to define our delimiter for inline and display mode. As you can see there are two ways to generate our math equation, I will demonstrate it later in this blog. The next and last element is the CDN link to download a minified MathJax file. We need the library to know how to replace our TeX/LaTeX syntax with web fonts or SVG.
+
+Now time to add this to our `Helmet` component!
+
+```html
+<Helmet script="{scripts}"></Helmet>
+```
+
+Ok now we have everything we need to write our math equation! However, Gatsby is a single page application so when we render our markdown we have to parse our LaTex syntax. To do this we need to tell our React component to invoke MathJax once the markdown is loaded using the `useEffect` hook. We would add this hook to the React component that renders our markdown files.
+
+```javascript
+useEffect(() => {
+	window.MathJax && window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub]);
+});
+```
+
+### Displaying Beautiful Mathematical Equations!
+
+There are two types of equations you can create using the TeX/LaTeX syntax: ones occur within a paragraph inline and the other for displaying the equation in a larger format. For the inline format we will use `$` and for the display mode we will use `$$`. Now let's write the quadratic formula!
+
+```
+When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+```

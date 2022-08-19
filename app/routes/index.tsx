@@ -2,11 +2,9 @@ import { json } from "@remix-run/node";
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-import * as creatingMyWebsite from "./posts/creating-my-website-with-remix.mdx";
-
 import BlogPostItem from "~/components/BlogPostItem";
-import postFromModule from "~/utils/postFromModule";
-import type { PostMeta } from "~/utils/postFromModule";
+import posts from "~/utils/posts";
+import type { PostMeta } from "~/utils/posts";
 
 export const meta: MetaFunction = () => {
 	return { title: "Jordan Wu | Home" };
@@ -19,16 +17,7 @@ export const headers: HeadersFunction = () => {
 };
 
 export async function loader() {
-	return json([
-		postFromModule(creatingMyWebsite),
-		postFromModule(creatingMyWebsite),
-		postFromModule(creatingMyWebsite),
-		postFromModule(creatingMyWebsite),
-		postFromModule(creatingMyWebsite),
-		postFromModule(creatingMyWebsite),
-		postFromModule(creatingMyWebsite),
-		postFromModule(creatingMyWebsite),
-	]);
+	return json(posts);
 }
 
 export default function Index() {
