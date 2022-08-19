@@ -14,7 +14,7 @@ import { SearchContext } from "~/providers/SearchProvider";
 export default function Navbar() {
 	// const [darkMode, toggleDarkMode] = useDarkMode();
 	const [searchTerm, setSearchTerm] = useContext(SearchContext);
-	let [_, setSearchParams] = useSearchParams();
+	const [_, setSearchParams] = useSearchParams();
 	const location = useLocation();
 	const navigate = useNavigate();
 

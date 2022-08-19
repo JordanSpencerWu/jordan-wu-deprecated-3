@@ -5,7 +5,7 @@ meta:
   postImageUrl: https://placekitten.com/g/320/240
   published: 2022-08-18
   readingTimeInMinute: 10
-  tags: ["web development"]
+  tags: ["web development", "fashion", "lifestyle", "dating", "habits"]
   title: Creating My Website With Remix
 
 headers:
@@ -13,10 +13,13 @@ headers:
 ---
 
 import BlogPostHeading from "~/components/BlogPostHeading";
+import BlogPostTags from "~/components/BlogPostTags";
 
 <BlogPostHeading {...attributes.meta} />
 
-## {attributes.meta.title}
+<BlogPostTags className="mt-2" tags={attributes.meta.tags} />
+
+<h2 className="mt-2">{attributes.meta.title}</h2>
 
 <img
 	src={attributes.meta.postImageUrl}

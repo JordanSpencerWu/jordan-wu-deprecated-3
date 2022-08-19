@@ -1,4 +1,4 @@
-import type { PostMeta } from "~/utils/postFromModule";
+import type { PostMeta } from "~/utils/posts";
 
 import displayDate from "~/utils/displayDate";
 import Avatar from "~/components/Avatar";
@@ -7,7 +7,7 @@ export default function BlogPostHeading(props: PostMeta) {
 	const { authorAvatarUrl, author, published, readingTimeInMinute } = props;
 
 	return (
-		<div className="flex translate-y-[20px]">
+		<div className="flex">
 			<Avatar src={authorAvatarUrl} size="lg" className="m-0" />
 			<div className="pl-2 flex flex-col justify-center">
 				<p className="text-xl m-0">{author}</p>

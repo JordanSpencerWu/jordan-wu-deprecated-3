@@ -52,8 +52,8 @@ export default function Index() {
 		<div className="w-screen h-full flex">
 			{displayPosts.length > 0 && (
 				<ul className="w-full">
-					{displayPosts.map((post, index) => (
-						<BlogPostItem key={index} {...post} />
+					{displayPosts.map((post) => (
+						<BlogPostItem key={post.slug} {...post} />
 					))}
 				</ul>
 			)}
