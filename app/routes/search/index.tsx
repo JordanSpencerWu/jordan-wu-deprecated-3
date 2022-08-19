@@ -41,18 +41,30 @@ export default function Index() {
 	let displayPosts = posts;
 
 	if (searchTerm) {
-		const searchedPosts = search.search(searchTerm);
+		const searchedPosts = search.search(searchTerm) as PostMeta[];
 
 		displayPosts = searchedPosts;
 	}
 
+	const emptySearchResult = searchTerm && displayPosts.length === 0;
+
 	return (
-		<div className="w-screen flex">
-			<ul className="w-full">
-				{displayPosts.map((post, index) => (
-					<BlogPostItem key={index} {...post} />
-				))}
-			</ul>
+		<div className="w-screen h-full flex">
+			{displayPosts.length > 0 && (
+				<ul className="w-full">
+					{displayPosts.map((post, index) => (
+						<BlogPostItem key={index} {...post} />
+					))}
+				</ul>
+			)}
+			{emptySearchResult && (
+				<div className="h-full w-full p-4 text-2xl flex justify-center items-center">
+					<p className="text-center break-all">
+						Sorry could not find any matches for:{" "}
+						<b className="font-bold">{searchTerm}</b>
+					</p>
+				</div>
+			)}
 		</div>
 	);
 }
