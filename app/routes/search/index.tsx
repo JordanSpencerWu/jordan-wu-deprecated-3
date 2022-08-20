@@ -5,7 +5,8 @@ import { useLoaderData } from "@remix-run/react";
 import { Search } from "js-search";
 
 import BlogPostItem from "~/components/BlogPostItem";
-import posts from "~/utils/posts";
+import Tag from "~/components/Tag";
+import POSTS, { TAGS } from "~/utils/posts";
 import type { PostMeta } from "~/utils/posts";
 import { SearchContext } from "~/providers/SearchProvider";
 
@@ -20,7 +21,7 @@ export const headers: HeadersFunction = () => {
 };
 
 export async function loader() {
-	return json(posts);
+	return json(POSTS);
 }
 
 export default function Index() {
@@ -49,7 +50,12 @@ export default function Index() {
 	const emptySearchResult = searchTerm && displayPosts.length === 0;
 
 	return (
-		<div className="w-screen h-full flex">
+		<div className="w-screen h-full flex flex-col">
+			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden">
+				{TAGS.map((tag) => (
+					<Tag className="first:ml-2 last:mr-2">{tag}</Tag>
+				))}
+			</div>
 			{displayPosts.length > 0 && (
 				<ul className="w-full">
 					{displayPosts.map((post) => (

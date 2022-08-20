@@ -3,7 +3,7 @@ import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import BlogPostItem from "~/components/BlogPostItem";
-import posts from "~/utils/posts";
+import POSTS from "~/utils/posts";
 import type { PostMeta } from "~/utils/posts";
 
 export const meta: MetaFunction = () => {
@@ -17,7 +17,7 @@ export const headers: HeadersFunction = () => {
 };
 
 export async function loader() {
-	return json(posts);
+	return json(POSTS);
 }
 
 export default function Index() {

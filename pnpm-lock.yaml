@@ -12,6 +12,7 @@ specifiers:
   '@types/react': ^17.0.24
   '@types/react-dom': ^17.0.9
   '@types/react-icons': ^3.0.0
+  '@types/uniq': ^0.0.27
   '@vercel/node': ^1.15.2
   autoprefixer: ^10.4.2
   classnames: ^2.3.1
@@ -32,6 +33,7 @@ specifiers:
   rehype-highlight: ^5.0.2
   tailwindcss: ^3.1.8
   typescript: ^4.1.2
+  uniq: ^1.0.1
 
 dependencies:
   '@remix-run/node': 1.5.1_sfoxds7t5ydpegc3knd667wn6m
@@ -47,6 +49,7 @@ dependencies:
   react-icons: 4.4.0_react@17.0.2
   react-spinners: 0.13.4_sfoxds7t5ydpegc3knd667wn6m
   react-spring: 9.4.4_sfoxds7t5ydpegc3knd667wn6m
+  uniq: 1.0.1
 
 devDependencies:
   '@remix-run/dev': 1.5.1_sfoxds7t5ydpegc3knd667wn6m
@@ -57,6 +60,7 @@ devDependencies:
   '@types/react': 17.0.39
   '@types/react-dom': 17.0.11
   '@types/react-icons': 3.0.0_react@17.0.2
+  '@types/uniq': 0.0.27
   autoprefixer: 10.4.2_postcss@8.4.6
   concurrently: 7.0.0
   eslint: 8.21.0
@@ -1267,6 +1271,10 @@ packages:
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
+
+  /@types/uniq/0.0.27:
+    resolution: {integrity: sha512-frhneF50xyiZj11bWVtjf1F+UpxkRjw4aFgp0VNxsZ6jIIVcVXRNTOab/yw/yy5wERfKFbmNFrwQVztQUG98Gg==}
     dev: true
 
   /@types/unist/2.0.6:
@@ -7177,6 +7185,10 @@ packages:
       is-extendable: 0.1.1
       set-value: 2.0.1
     dev: true
+
+  /uniq/1.0.1:
+    resolution: {integrity: sha512-Gw+zz50YNKPDKXs+9d+aKAjVwpjNwqzvNpLigIruT4HA9lMZNdMqs9x07kKHB/L9WRzqp4+DlTU5s4wG2esdoA==}
+    dev: false
 
   /unique-filename/1.1.1:
     resolution: {integrity: sha512-Vmp0jIp2ln35UTXuryvjzkjGdRyf9b2lTXuSYUiPmzRcl3FDtYqAwOnTJkAngD9SWhnoJzDbTKwaOrZ+STtxNQ==}

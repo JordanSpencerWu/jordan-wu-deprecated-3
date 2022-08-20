@@ -18,7 +18,8 @@ export default function BlogPostItem(props: Props) {
 		tags = [],
 		title,
 	} = props;
-	const mainTag = tags[0];
+	const firstTag = tags[0];
+	const hasMoreTags = tags.length > 1;
 
 	const navigate = useNavigate();
 
@@ -58,7 +59,15 @@ export default function BlogPostItem(props: Props) {
 						</time>
 						{readingTimeInMinute} min read
 					</p>
-					<Tag className="max-w-[160px]">{mainTag}</Tag>
+					<div className="inline-flex flex-wrap gap-1">
+						<Tag className="max-w-[160px]">{firstTag}</Tag>
+						{hasMoreTags && (
+							<Tag className="max-w-[160px]">
+								<span>+ </span>
+								{tags.length - 1}
+							</Tag>
+						)}
+					</div>
 				</div>
 			</article>
 		</li>
