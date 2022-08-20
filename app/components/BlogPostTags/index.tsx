@@ -9,7 +9,10 @@ type Props = {
 export default function BlogPostTags(props: Props) {
 	const { className, tags } = props;
 
-	const containerClass = classNames("inline-flex flex-wrap gap-2", className);
+	const containerClass = classNames(
+		"inline-flex flex-wrap gap-2 text-[13px] leading-6 ",
+		className
+	);
 
 	return (
 		<div className={containerClass}>

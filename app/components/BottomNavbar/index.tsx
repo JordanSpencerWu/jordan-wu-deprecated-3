@@ -11,6 +11,7 @@ import {
 	MdInfo as AboutIcon,
 	MdInfoOutline as OutlineAboutIcon,
 } from "react-icons/md";
+import { useSearchParams } from "@remix-run/react";
 
 import pathTo from "~/utils/pathTo";
 
@@ -43,6 +44,8 @@ type LocationState = {
 
 export default function BottomNavbar() {
 	const location = useLocation();
+	const [searchParams] = useSearchParams();
+
 	const state = location?.state as LocationState;
 	const previousPathname = state?.previousPathname;
 
@@ -55,7 +58,7 @@ export default function BottomNavbar() {
 						location.pathname === link.to || previousPathname === link.to;
 
 					return (
-						<NavLink key={to} to={to}>
+						<NavLink key={to} to={`${to}?${searchParams.toString()}`}>
 							{isActive ? <ActiveIcon size={24} /> : <Icon size={24} />}
 						</NavLink>
 					);

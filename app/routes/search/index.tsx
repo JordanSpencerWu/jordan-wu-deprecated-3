@@ -81,14 +81,14 @@ export default function Index() {
 
 	return (
 		<div className="w-screen h-full flex flex-col">
-			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden">
+			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden text-[18px] leading-6">
 				{orderedTags.map((tag) => {
 					const active = filters.includes(tag);
 
 					return (
 						<Tag
 							key={tag}
-							className="first:ml-2 last:mr-2"
+							className="first:ml-4 last:mr-4"
 							active={active}
 							clickable
 						>

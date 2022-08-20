@@ -1,5 +1,6 @@
 import { useNavigate } from "@remix-run/react";
 import { useSpring, animated } from "react-spring";
+import { useSearchParams } from "@remix-run/react";
 
 import Avatar from "~/components/Avatar";
 import Tag from "~/components/Tag";
@@ -27,6 +28,7 @@ export default function BlogPostItem(props: Props) {
 	const firstTag = tags[0];
 	const hasMoreTags = tags.length > 1;
 
+	const [searchParams] = useSearchParams();
 	const [fadeInStyles] = useSpring(() => FADE_IN_SPRING_PROPS);
 	const navigate = useNavigate();
 
@@ -35,7 +37,7 @@ export default function BlogPostItem(props: Props) {
 			previousPathname: location.pathname,
 		};
 
-		navigate(slug, { state });
+		navigate(`${slug}?${searchParams.toString()}`, { state });
 	}
 
 	return (
@@ -67,7 +69,7 @@ export default function BlogPostItem(props: Props) {
 						</time>
 						{readingTimeInMinute} min read
 					</p>
-					<div className="inline-flex flex-wrap gap-1">
+					<div className="inline-flex flex-wrap gap-1 text-[13px] leading-6">
 						<Tag className="max-w-[160px]">{firstTag}</Tag>
 						{hasMoreTags && (
 							<Tag className="max-w-[160px]">{`+ ${tags.length - 1}`}</Tag>
