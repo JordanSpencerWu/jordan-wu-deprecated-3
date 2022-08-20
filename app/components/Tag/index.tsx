@@ -30,7 +30,11 @@ export default function Tag(props: Props) {
 
 	const containerClass = classNames(
 		"bg-[#e4e4e4] text-[#727272] h-[24px] inline-block text-[13px] px-[8px] leading-6 rounded-2xl capitalize whitespace-nowrap",
-		{ "bg-[#bcbcbc]": active, "text-[#2f2f2f]": active },
+		{
+			"bg-[#bcbcbc]": active,
+			"text-[#2f2f2f]": active,
+			"cursor-pointer": clickable,
+		},
 		className
 	);
 
