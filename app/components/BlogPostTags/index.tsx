@@ -14,7 +14,9 @@ export default function BlogPostTags(props: Props) {
 	return (
 		<div className={containerClass}>
 			{Object.values(tags).map((tag) => (
-				<Tag key={tag}>{tag}</Tag>
+				<Tag key={tag} clickable inPost>
+					{tag}
+				</Tag>
 			))}
 		</div>
 	);

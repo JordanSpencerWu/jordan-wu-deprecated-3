@@ -10,7 +10,7 @@ import styles from "~/tailwind.css";
 import pathToName from "~/utils/pathToName";
 import Document from "~/components/Document";
 import Layout from "~/components/Layout";
-import pathTo from "./utils/pathTo";
+import pathTo from "~/utils/pathTo";
 
 export const links: LinksFunction = () => {
 	return [

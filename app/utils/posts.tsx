@@ -47,6 +47,6 @@ const ALL_POST_TAGS = ALL_POSTS.reduce(
 	[]
 );
 
-export const TAGS = uniq(ALL_POST_TAGS);
+export const TAGS = uniq(ALL_POST_TAGS).sort();
 
 export default ALL_POSTS;

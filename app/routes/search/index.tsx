@@ -1,7 +1,7 @@
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { json } from "@remix-run/node";
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useSearchParams, useLocation } from "@remix-run/react";
 import { Search } from "js-search";
 
 import BlogPostItem from "~/components/BlogPostItem";
@@ -9,6 +9,10 @@ import Tag from "~/components/Tag";
 import POSTS, { TAGS } from "~/utils/posts";
 import type { PostMeta } from "~/utils/posts";
 import { SearchContext } from "~/providers/SearchProvider";
+
+type LocationState = {
+	tag?: string;
+};
 
 export const meta: MetaFunction = () => {
 	return { title: "Jordan Wu | Search" };
@@ -26,7 +30,27 @@ export async function loader() {
 
 export default function Index() {
 	const posts: PostMeta[] = useLoaderData();
+	const [searchParams] = useSearchParams();
+	const location = useLocation();
+	const [orderedTags, setOrderedTags] = useState<string[]>(TAGS);
 	const [searchTerm] = useContext(SearchContext);
+
+	const filters = searchParams.get("filters")?.split(",") || [];
+	const state = location?.state as LocationState;
+	const tag = state?.tag;
+
+	useEffect(() => {
+		if (tag) {
+			const index = orderedTags.indexOf(tag);
+
+			if (index > -1) {
+				let newOrderedTags = [...orderedTags];
+				newOrderedTags.splice(index, 1);
+				newOrderedTags.unshift(tag);
+				setOrderedTags(newOrderedTags);
+			}
+		}
+	}, []);
 
 	const search = useMemo(() => {
 		const search = new Search("slug");
@@ -47,14 +71,31 @@ export default function Index() {
 		displayPosts = searchedPosts;
 	}
 
+	if (filters.length > 0) {
+		displayPosts = displayPosts.filter((post) =>
+			filters.some((filter) => post.tags.includes(filter))
+		);
+	}
+
 	const emptySearchResult = searchTerm && displayPosts.length === 0;
 
 	return (
 		<div className="w-screen h-full flex flex-col">
 			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden">
-				{TAGS.map((tag) => (
-					<Tag className="first:ml-2 last:mr-2">{tag}</Tag>
-				))}
+				{orderedTags.map((tag) => {
+					const active = filters.includes(tag);
+
+					return (
+						<Tag
+							key={tag}
+							className="first:ml-2 last:mr-2"
+							active={active}
+							clickable
+						>
+							{tag}
+						</Tag>
+					);
+				})}
 			</div>
 			{displayPosts.length > 0 && (
 				<ul className="w-full">

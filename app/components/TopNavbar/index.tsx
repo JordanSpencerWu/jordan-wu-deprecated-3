@@ -14,7 +14,7 @@ import { SearchContext } from "~/providers/SearchProvider";
 export default function Navbar() {
 	// const [darkMode, toggleDarkMode] = useDarkMode();
 	const [searchTerm, setSearchTerm] = useContext(SearchContext);
-	const [_, setSearchParams] = useSearchParams();
+	const [searchParams, setSearchParams] = useSearchParams();
 	const location = useLocation();
 	const navigate = useNavigate();
 
@@ -35,10 +35,14 @@ export default function Navbar() {
 
 	function handleSearch(event: ChangeEvent<HTMLInputElement>) {
 		const value = event.target.value;
-		const queryString = value ? `q=${value}` : "";
-		const params = new URLSearchParams(queryString);
 
-		setSearchParams(params);
+		if (value) {
+			searchParams.set("q", value);
+		} else {
+			searchParams.delete("q");
+		}
+
+		setSearchParams(searchParams);
 		setSearchTerm(value);
 	}
 
@@ -46,9 +50,8 @@ export default function Navbar() {
 		const showCloseIcon = searchTerm !== "";
 
 		function handleClearSearch() {
-			const params = new URLSearchParams("");
-
-			setSearchParams(params);
+			searchParams.delete("q");
+			setSearchParams(searchParams);
 			setSearchTerm("");
 		}
 
