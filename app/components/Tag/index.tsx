@@ -70,7 +70,6 @@ export default function Tag(props: Props) {
 				setSearchTerm("");
 				navigate(`${pathTo.search}?${searchParams.toString()}`, { state });
 			} else {
-				setSearchTerm("");
 				navigate(`${pathTo.search}?${searchParams.toString()}`);
 			}
 		}
