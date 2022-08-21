@@ -102,7 +102,11 @@ export default function Navbar() {
 					{pathName}
 				</div>
 			) : (
-				<MdArrowBack size={24} onClick={handleClick} />
+				<MdArrowBack
+					className="cursor-pointer"
+					size={24}
+					onClick={handleClick}
+				/>
 			)}
 			{/* <button type="button">
 				{showLightMode && <LightModeIcon size={24} className="animate-fade-in" onClick={toggleDarkMode} />}

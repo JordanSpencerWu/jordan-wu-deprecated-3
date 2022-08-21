@@ -1,4 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
+import type { MouseEvent } from "react";
 import { json } from "@remix-run/node";
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData, useSearchParams, useLocation } from "@remix-run/react";
@@ -30,7 +31,7 @@ export async function loader() {
 
 export default function Index() {
 	const posts: PostMeta[] = useLoaderData();
-	const [searchParams] = useSearchParams();
+	const [searchParams, setSearchParams] = useSearchParams();
 	const location = useLocation();
 	const [orderedTags, setOrderedTags] = useState<string[]>(TAGS);
 	const [searchTerm] = useContext(SearchContext);
@@ -77,6 +78,13 @@ export default function Index() {
 		);
 	}
 
+	function clearFilters(event: MouseEvent<HTMLElement>) {
+		event.preventDefault();
+
+		searchParams.delete("filters");
+		setSearchParams(searchParams, { replace: true });
+	}
+
 	const emptySearchResult = searchTerm && displayPosts.length === 0;
 
 	return (
@@ -86,16 +94,17 @@ export default function Index() {
 					const active = filters.includes(tag);
 
 					return (
-						<Tag
-							key={tag}
-							className="first:ml-4 last:mr-4"
-							active={active}
-							clickable
-						>
+						<Tag key={tag} className="first:ml-4" active={active} clickable>
 							{tag}
 						</Tag>
 					);
 				})}
+				<div
+					className="bg-[#e4e4e4] text-[#727272] h-[24px] inline-block px-[8px] rounded-2xl capitalize whitespace-nowrap mr-4 cursor-pointer"
+					onClick={clearFilters}
+				>
+					Clear Filters
+				</div>
 			</div>
 			{displayPosts.length > 0 && (
 				<ul className="w-full">
