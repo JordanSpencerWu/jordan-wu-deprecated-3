@@ -16,7 +16,7 @@ type LocationState = {
 };
 
 export const meta: MetaFunction = () => {
-	return { title: "Jordan Wu | Search" };
+	return { title: "jordanwu.xyz | Search" };
 };
 
 export const headers: HeadersFunction = () => {

@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "jordan-wu",
-  "description": "Jordan Wu personal website",
+  "name": "jordanwu.xyz",
+  "description": "jordanwu.xyz personal website",
   "license": "MIT",
   "scripts": {
     "build": "npm run build:css && remix build",

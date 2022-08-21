@@ -4,7 +4,7 @@ import classNames from "classnames";
 import FadeLoader from "react-spinners/FadeLoader";
 
 export const meta: MetaFunction = () => {
-	return { title: "Jordan Wu | Playlist" };
+	return { title: "jordanwu.xyz | Playlist" };
 };
 
 export const headers: HeadersFunction = () => {

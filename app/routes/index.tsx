@@ -7,7 +7,7 @@ import POSTS from "~/utils/posts";
 import type { PostMeta } from "~/utils/posts";
 
 export const meta: MetaFunction = () => {
-	return { title: "Jordan Wu | Home" };
+	return { title: "jordanwu.xyz | Home" };
 };
 
 export const headers: HeadersFunction = () => {

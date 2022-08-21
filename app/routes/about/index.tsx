@@ -1,7 +1,7 @@
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
-	return { title: "Jordan Wu | About" };
+	return { title: "jordanwu.xyz | About" };
 };
 
 export const headers: HeadersFunction = () => {
@@ -12,9 +12,27 @@ export const headers: HeadersFunction = () => {
 
 export default function Index() {
 	return (
-		<div className="relative w-full h-full flex flex-col justify-center items-center p-6">
+		<div className="w-full h-full flex flex-col p-6 text-lg">
+			<p>
+				Welcome! My name is Jordan and I will be blogging about everything!
+				There's so much to learn in life and the best way to learn is to write a
+				blog about it. It's a good way to remember the learnings and to share
+				it!
+			</p>
+			<p className="mt-4">
+				A little bit about me. I work as a software engineer and enjoy building
+				products for people! On my free time I enjoy listening to music! I would
+				spend hours each week finding new songs to listen to. I love music so
+				much that my dream is to become a music producer and DJ.
+			</p>
+			<p className="mt-4">
+				I'm in the process of planning out my dream and creating the habits that
+				will help me get there. On this website I will be sharing my favorite
+				songs in a Spotify playlist. I'm hoping to find my own sound and to be
+				able to create great music.
+			</p>
 			<blockquote
-				className="p-6 border-l-8 border-black border-solid text-2xl -translate-y-8
+				className="mt-4 p-6 border-l-8 border-black border-solid text-2xl
 									 before:content-['\201c'] before:text-[100px] before:block
 									 before:mb-[-4px] before:mt-4"
 			>
@@ -26,41 +44,43 @@ export default function Index() {
 					Jordan Wu
 				</p>
 			</blockquote>
-			<div className="fixed bottom-20 mt-4 flex justify-evenly w-8/12">
-				<a
-					href="https://www.instagram.com/jordanwu.xyz/"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<img
-						alt="instagram icon"
-						src="/instagram.svg"
-						height="32"
-						width="32"
-					/>
-				</a>
-				<a href="https://twitter.com" target="_blank" rel="noreferrer">
-					<img alt="twitter icon" src="/twitter.svg" height="32" width="32" />
-				</a>
-				<a
-					href="https://www.youtube.com/channel/UCHu47XImxsir745HDcab30g"
-					rel="noreferrer"
-					target="_blank"
-				>
-					<img alt="youtube icon" src="/youtube.svg" height="32" width="32" />
-				</a>
-				<a
-					href="https://soundcloud.com/jordanwu_xyz"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<img
-						alt="soundcloud icon"
-						src="/sound-cloud.svg"
-						height="32"
-						width="32"
-					/>
-				</a>
+			<div className="w-full flex justify-center mt-4">
+				<div className="flex justify-evenly w-8/12">
+					<a
+						href="https://www.instagram.com/jordanwu.xyz/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img
+							alt="instagram icon"
+							src="/instagram.svg"
+							height="32"
+							width="32"
+						/>
+					</a>
+					<a href="https://twitter.com" target="_blank" rel="noreferrer">
+						<img alt="twitter icon" src="/twitter.svg" height="32" width="32" />
+					</a>
+					<a
+						href="https://www.youtube.com/channel/UCHu47XImxsir745HDcab30g"
+						rel="noreferrer"
+						target="_blank"
+					>
+						<img alt="youtube icon" src="/youtube.svg" height="32" width="32" />
+					</a>
+					<a
+						href="https://soundcloud.com/jordanwu_xyz/tracks"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img
+							alt="soundcloud icon"
+							src="/sound-cloud.svg"
+							height="32"
+							width="32"
+						/>
+					</a>
+				</div>
 			</div>
 		</div>
 	);
