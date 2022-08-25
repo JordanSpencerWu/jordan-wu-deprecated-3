@@ -13,18 +13,8 @@ headers:
 ---
 
 import BlogPostHeading from "~/components/BlogPostHeading";
-import BlogPostTags from "~/components/BlogPostTags";
 
 <BlogPostHeading {...attributes.meta} />
-
-<BlogPostTags className="mt-2" tags={attributes.meta.tags} />
-
-<h2 className="mt-2">{attributes.meta.title}</h2>
-
-<img
-	src={attributes.meta.postImageUrl}
-	className="object-contain w-full rounded"
-/>
 
 ### First of all how did I get this page to render?
 

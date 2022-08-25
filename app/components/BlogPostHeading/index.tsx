@@ -1,26 +1,24 @@
 import type { PostMeta } from "~/utils/posts";
 
+import BlogPostTags from "~/components/BlogPostTags";
 import displayDate from "~/utils/displayDate";
-import Avatar from "~/components/Avatar";
 
 export default function BlogPostHeading(props: PostMeta) {
-	const { authorAvatarUrl, author, published, readingTimeInMinute } = props;
+	const { title, published, postImageUrl, tags } = props;
+	const longForm = true;
 
 	return (
-		<div className="flex">
-			<Avatar src={authorAvatarUrl} size="lg" className="m-0" />
-			<div className="pl-2 flex flex-col justify-center">
-				<p className="text-xl m-0">{author}</p>
-				<p className="font-medium text-sm m-0">
-					<time
-						className="m-0 after:content-['\00b7'] after:text-[18px] after:align-middle after:mx-[2px]"
-						dateTime={published}
-					>
-						{displayDate(published)}
-					</time>
-					{readingTimeInMinute} min read
-				</p>
-			</div>
+		<div className="flex flex-col">
+			<h2 className="m-0">{title}</h2>
+			<p className="font-medium text-base m-0">
+				Published on{" "}
+				<time dateTime={published}>{displayDate(published, longForm)}</time>
+			</p>
+			<BlogPostTags className="mt-4" tags={tags} />
+			<img
+				src={postImageUrl}
+				className="mt-6 mb-0 object-contain w-full rounded"
+			/>
 		</div>
 	);
 }

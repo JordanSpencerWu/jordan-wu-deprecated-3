@@ -11,3 +11,7 @@
 .search {
 	fill: rgb(131, 131, 131);
 }
+
+.prose > h3:first-of-type {
+	margin-top: 24px;
+}
