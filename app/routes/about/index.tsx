@@ -12,7 +12,7 @@ export const headers: HeadersFunction = () => {
 
 export default function Index() {
 	return (
-		<div className="w-full h-full flex flex-col p-6 text-lg">
+		<div className="w-full h-full flex flex-col p-[16px] text-lg">
 			<p>
 				Welcome! My name is Jordan and I will be blogging about everything!
 				There's so much to learn in life and the best way to learn is to write a
@@ -29,7 +29,7 @@ export default function Index() {
 				I'm in the process of planning out my dream and creating the habits that
 				will help me get there. On this website I will be sharing my favorite
 				songs in a Spotify playlist. I'm hoping to find my own sound and to be
-				able to create great music.
+				able to create great music!
 			</p>
 			<blockquote
 				className="mt-4 p-6 border-l-8 border-black border-solid text-2xl

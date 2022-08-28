@@ -26,7 +26,7 @@ export default function Tag(props: Props) {
 
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
-	const [_, setSearchTerm] = useContext(SearchContext);
+	const [, setSearchTerm] = useContext(SearchContext);
 
 	const containerClass = classNames(
 		"bg-[#e4e4e4] text-[#727272] h-[24px] inline-block px-[8px] rounded-2xl capitalize whitespace-nowrap",

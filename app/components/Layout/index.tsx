@@ -20,14 +20,15 @@ export default function Layout(props: Props) {
 
 	const [fadeInStyles, springApi] = useSpring(() => FADE_IN_SPRING_PROPS);
 	const location = useLocation();
-	const [currentPathname, setCurrentPathname] = useState(location.pathname);
+	const [pathname, setPathname] = useState(location.pathname);
+	const currentPathName = location.pathname;
 
 	useEffect(() => {
-		if (location.pathname !== currentPathname) {
+		if (currentPathName !== pathname) {
 			springApi.start(FADE_IN_SPRING_PROPS);
-			setCurrentPathname(location.pathname);
+			setPathname(location.pathname);
 		}
-	}, [location, currentPathname, springApi]);
+	}, [currentPathName, springApi]);
 
 	return (
 		<>

@@ -16,6 +16,7 @@ export default function BlogPostHeading(props: PostMeta) {
 			</p>
 			<BlogPostTags className="mt-4" tags={tags} />
 			<img
+				alt="blog post"
 				src={postImageUrl}
 				className="mt-6 mb-0 object-contain w-full rounded"
 			/>

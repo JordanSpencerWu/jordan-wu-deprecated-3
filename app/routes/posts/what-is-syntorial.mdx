@@ -1,7 +1,5 @@
 ---
 meta:
-  author: Jordan Wu
-  authorAvatarUrl: https://placekitten.com/g/300/300
   postImageUrl: https://placekitten.com/g/320/240
   published: 2020-04-18
   readingTimeInMinute: 10
@@ -13,18 +11,8 @@ headers:
 ---
 
 import BlogPostHeading from "~/components/BlogPostHeading";
-import BlogPostTags from "~/components/BlogPostTags";
 
 <BlogPostHeading {...attributes.meta} />
-
-<BlogPostTags className="mt-2" tags={attributes.meta.tags} />
-
-<h2 className="mt-2">{attributes.meta.title}</h2>
-
-<img
-	src={attributes.meta.postImageUrl}
-	className="object-contain w-full rounded"
-/>
 
 What is Syntorial and why I am using it. This is a training tool to help sound designers learn about subtractive synthesis. There are many ways to learn, but in my opinion, this is the best way for me.
 

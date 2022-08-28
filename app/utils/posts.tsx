@@ -5,8 +5,6 @@ import * as post_2 from "~/routes/posts/how-to-add-mathjax-to-your-gatsby-websit
 import * as post_3 from "~/routes/posts/creating-my-website-with-remix.mdx";
 
 type Meta = {
-	author: string;
-	authorAvatarUrl: string;
 	postImageUrl: string;
 	published: string;
 	readingTimeInMinute: number;

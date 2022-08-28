@@ -51,7 +51,7 @@ export default function Index() {
 				setOrderedTags(newOrderedTags);
 			}
 		}
-	}, []);
+	}, [tag]);
 
 	const search = useMemo(() => {
 		const search = new Search("slug");
@@ -94,13 +94,13 @@ export default function Index() {
 					const active = filters.includes(tag);
 
 					return (
-						<Tag key={tag} className="first:ml-4" active={active} clickable>
+						<Tag key={tag} className="first:ml-2" active={active} clickable>
 							{tag}
 						</Tag>
 					);
 				})}
 				<div
-					className="bg-[#e4e4e4] text-[#727272] h-[24px] inline-block px-[8px] rounded-2xl capitalize whitespace-nowrap mr-4 cursor-pointer"
+					className="bg-[#e4e4e4] text-[#727272] h-[24px] inline-block px-[8px] rounded-2xl capitalize whitespace-nowrap mr-2 cursor-pointer"
 					onClick={clearFilters}
 				>
 					Clear Filters
