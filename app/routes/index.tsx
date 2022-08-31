@@ -39,7 +39,7 @@ export default function Index() {
 				<h4 className="text-md">RECENT POSTS</h4>
 				<ul className="w-full">
 					{posts.map((post) => (
-						<li className="w-full cursor-pointer">
+						<li key={post.slug} className="w-full cursor-pointer">
 							<article className="w-full py-2">
 								<div className="flex justify-between mt-2">
 									<div>
@@ -76,6 +76,27 @@ export default function Index() {
 						</Tag>
 					))}
 				</div>
+			</div>
+			<div className="py-8 px-4 flex flex-col border-t border-nav-border-color border-solid">
+				<h4 className="text-md">CURRENT FAVORITE</h4>
+				<iframe
+					className="my-4 rounded"
+					src="https://open.spotify.com/embed/track/7rZgu1GRVc82bB6fCKHxYj?utm_source=generator"
+					width="100%"
+					height="80"
+					frameBorder="0"
+					allowFullScreen
+					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+				></iframe>
+				<iframe
+					className="my-4 rounded"
+					src="https://open.spotify.com/embed/album/4yrjPmonSHiJIHum5TrqEe?utm_source=generator"
+					width="100%"
+					height="380"
+					frameBorder="0"
+					allowFullScreen
+					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+				></iframe>
 			</div>
 		</div>
 	);
