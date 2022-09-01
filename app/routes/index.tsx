@@ -1,6 +1,6 @@
 import { json } from "@remix-run/node";
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useNavigate, useSearchParams } from "@remix-run/react";
 
 import Tag from "~/components/Tag";
 import displayDate from "~/utils/displayDate";
@@ -25,6 +25,12 @@ export async function loader() {
 
 export default function Index() {
 	const posts: PostMeta[] = useLoaderData();
+	const [searchParams] = useSearchParams();
+	const navigate = useNavigate();
+
+	function handleClick(slug: string) {
+		navigate(`${slug}?${searchParams.toString()}`);
+	}
 
 	return (
 		<div className="w-screen flex flex-col">
@@ -39,7 +45,11 @@ export default function Index() {
 				<h4 className="text-md">RECENT POSTS</h4>
 				<ul className="w-full">
 					{posts.map((post) => (
-						<li key={post.slug} className="w-full cursor-pointer">
+						<li
+							key={post.slug}
+							className="w-full cursor-pointer"
+							onClick={() => handleClick(post.slug)}
+						>
 							<article className="w-full py-2">
 								<div className="flex justify-between mt-2">
 									<div>
@@ -80,6 +90,7 @@ export default function Index() {
 			<div className="py-8 px-4 flex flex-col border-t border-nav-border-color border-solid">
 				<h4 className="text-md">CURRENT FAVORITE</h4>
 				<iframe
+					title="current favorite song"
 					className="my-4 rounded"
 					src="https://open.spotify.com/embed/track/7rZgu1GRVc82bB6fCKHxYj?utm_source=generator"
 					width="100%"
@@ -89,6 +100,7 @@ export default function Index() {
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
 				<iframe
+					title="current favorite album"
 					className="my-4 rounded"
 					src="https://open.spotify.com/embed/album/4yrjPmonSHiJIHum5TrqEe?utm_source=generator"
 					width="100%"

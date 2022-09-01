@@ -1,6 +1,5 @@
-import { useNavigate } from "@remix-run/react";
+import { useNavigate, useSearchParams } from "@remix-run/react";
 import { useSpring, animated } from "react-spring";
-import { useSearchParams } from "@remix-run/react";
 
 import Tag from "~/components/Tag";
 import type { PostMeta } from "~/utils/posts";

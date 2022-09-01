@@ -1,8 +1,6 @@
 import uniq from "uniq";
 
-import * as post_1 from "~/routes/posts/what-is-syntorial.mdx";
-import * as post_2 from "~/routes/posts/how-to-add-mathjax-to-your-gatsby-website.mdx";
-import * as post_3 from "~/routes/posts/creating-my-website-with-remix.mdx";
+import * as post_1 from "~/routes/posts/how-to-create-a-website-with-remix.mdx";
 
 type Meta = {
 	postImageUrl: string;
@@ -34,11 +32,7 @@ function postFromModule(module: Module): PostMeta {
 	};
 }
 
-const ALL_POSTS = [
-	postFromModule(post_1),
-	postFromModule(post_2),
-	postFromModule(post_3),
-].reverse();
+const ALL_POSTS = [postFromModule(post_1)].reverse();
 
 const ALL_POST_TAGS = ALL_POSTS.reduce(
 	(acc: string[], post: PostMeta) => acc.concat(post.tags),

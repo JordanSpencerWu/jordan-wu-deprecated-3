@@ -26,9 +26,9 @@ export default function Layout(props: Props) {
 	useEffect(() => {
 		if (currentPathName !== pathname) {
 			springApi.start(FADE_IN_SPRING_PROPS);
-			setPathname(location.pathname);
+			setPathname(currentPathName);
 		}
-	}, [currentPathName, springApi]);
+	}, [currentPathName, springApi, pathname]);
 
 	return (
 		<>

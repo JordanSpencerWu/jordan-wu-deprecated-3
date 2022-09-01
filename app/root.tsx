@@ -1,6 +1,5 @@
-import { Outlet, useNavigate } from "@remix-run/react";
+import { Outlet, useNavigate, useLocation } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-import { useLocation } from "@remix-run/react";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import classNames from "classnames";
 
