@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import type { MouseEvent, DOMAttributes } from "react";
 import { useSearchParams, useNavigate } from "@remix-run/react";
 import classNames from "classnames";
+
+import type { MouseEvent, DOMAttributes } from "react";
 
 import pathTo from "~/utils/pathTo";
 import { SearchContext } from "~/providers/SearchProvider";

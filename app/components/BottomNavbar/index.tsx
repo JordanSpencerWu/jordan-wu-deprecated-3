@@ -1,4 +1,3 @@
-import { NavLink, useLocation, useSearchParams } from "@remix-run/react";
 import {
 	AiFillHome as HomeIcon,
 	AiOutlineHome as OutlineHomeIcon,
@@ -11,6 +10,7 @@ import {
 	MdInfo as AboutIcon,
 	MdInfoOutline as OutlineAboutIcon,
 } from "react-icons/md";
+import { NavLink, useLocation, useSearchParams } from "@remix-run/react";
 
 import pathTo from "~/utils/pathTo";
 

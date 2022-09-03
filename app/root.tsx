@@ -1,15 +1,16 @@
 import { Outlet, useNavigate, useLocation } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
-import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import classNames from "classnames";
+import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
+
+import type { LinksFunction } from "@remix-run/node";
 
 // import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
-import SearchProvider from "~/providers/SearchProvider";
-import styles from "~/tailwind.css";
-import pathToName from "~/utils/pathToName";
 import Document from "~/components/Document";
 import Layout from "~/components/Layout";
 import pathTo from "~/utils/pathTo";
+import pathToName from "~/utils/pathToName";
+import SearchProvider from "~/providers/SearchProvider";
+import styles from "~/tailwind.css";
 
 export const links: LinksFunction = () => {
 	return [

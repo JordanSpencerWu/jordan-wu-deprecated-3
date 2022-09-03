@@ -2,8 +2,9 @@ import { useNavigate, useSearchParams } from "@remix-run/react";
 import { useSpring, animated } from "react-spring";
 
 import Tag from "~/components/Tag";
-import type { PostMeta } from "~/utils/posts";
 import displayDate from "~/utils/displayDate";
+
+import type { PostMeta } from "~/utils/posts";
 
 type Props = PostMeta;
 

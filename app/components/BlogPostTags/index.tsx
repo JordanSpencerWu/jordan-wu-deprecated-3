@@ -1,5 +1,6 @@
-import Tag from "~/components/Tag";
 import classNames from "classnames";
+
+import Tag from "~/components/Tag";
 
 type Props = {
 	tags: string[];

@@ -1,7 +1,7 @@
-import type { PostMeta } from "~/utils/posts";
-
 import BlogPostTags from "~/components/BlogPostTags";
 import displayDate from "~/utils/displayDate";
+
+import type { PostMeta } from "~/utils/posts";
 
 export default function BlogPostHeading(props: PostMeta) {
 	const { title, published, postImageUrl, tags } = props;

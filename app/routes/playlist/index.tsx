@@ -1,7 +1,8 @@
 import { useState } from "react";
-import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 import classNames from "classnames";
 import FadeLoader from "react-spinners/FadeLoader";
+
+import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
 	return { title: "jordanwu.xyz | Playlist" };

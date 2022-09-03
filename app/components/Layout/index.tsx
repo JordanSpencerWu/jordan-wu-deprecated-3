@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import type { ReactNode } from "react";
-import { useSpring, animated } from "react-spring";
 import { useLocation } from "@remix-run/react";
+import { useSpring, animated } from "react-spring";
 
-import Navbar from "~/components/TopNavbar";
+import type { ReactNode } from "react";
+
 import BottomNavbar from "~/components/BottomNavbar";
+import Navbar from "~/components/TopNavbar";
 
 type Props = {
 	children: ReactNode;

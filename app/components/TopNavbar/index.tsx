@@ -1,7 +1,7 @@
+import { BsSearch } from "react-icons/bs";
+import { MdArrowBack, MdClose } from "react-icons/md";
 import { useContext, useEffect } from "react";
 import { useLocation, useNavigate, useSearchParams } from "@remix-run/react";
-import { MdArrowBack, MdClose } from "react-icons/md";
-import { BsSearch } from "react-icons/bs";
 import classNames from "classnames";
 // import { MdOutlineWbSunny as LightModeIcon, MdModeNight as DarkModeIcon } from "react-icons/md";
 

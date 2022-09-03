@@ -1,15 +1,17 @@
-import { useContext, useEffect, useMemo, useState } from "react";
-import type { MouseEvent } from "react";
 import { json } from "@remix-run/node";
-import type { HeadersFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData, useSearchParams, useLocation } from "@remix-run/react";
 import { Search } from "js-search";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { useLoaderData, useSearchParams, useLocation } from "@remix-run/react";
 
-import BlogPostItem from "~/components/BlogPostItem";
-import Tag from "~/components/Tag";
-import POSTS, { TAGS } from "~/utils/posts";
-import type { PostMeta } from "~/utils/posts";
+import type { HeadersFunction, MetaFunction } from "@remix-run/node";
+import type { MouseEvent } from "react";
+
 import { SearchContext } from "~/providers/SearchProvider";
+import BlogPostItem from "~/components/BlogPostItem";
+import POSTS, { TAGS } from "~/utils/posts";
+import Tag from "~/components/Tag";
+
+import type { PostMeta } from "~/utils/posts";
 
 type LocationState = {
 	tag?: string;

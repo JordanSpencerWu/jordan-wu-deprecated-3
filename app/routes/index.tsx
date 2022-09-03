@@ -1,10 +1,12 @@
 import { json } from "@remix-run/node";
-import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData, useNavigate, useSearchParams } from "@remix-run/react";
 
-import Tag from "~/components/Tag";
+import type { HeadersFunction, MetaFunction } from "@remix-run/node";
+
 import displayDate from "~/utils/displayDate";
 import POSTS, { TAGS } from "~/utils/posts";
+import Tag from "~/components/Tag";
+
 import type { PostMeta } from "~/utils/posts";
 
 var ReactRotatingText = require("react-rotating-text");
