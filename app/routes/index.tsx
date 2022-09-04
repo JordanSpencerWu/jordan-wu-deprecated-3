@@ -1,9 +1,15 @@
 import { json } from "@remix-run/node";
-import { useLoaderData, useNavigate, useSearchParams } from "@remix-run/react";
+import {
+	useLoaderData,
+	useNavigate,
+	useSearchParams,
+	Link,
+} from "@remix-run/react";
 
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 
 import displayDate from "~/utils/displayDate";
+import pathTo from "~/utils/pathTo";
 import POSTS, { TAGS } from "~/utils/posts";
 import Tag from "~/components/Tag";
 
@@ -111,6 +117,11 @@ export default function Index() {
 					allowFullScreen
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
+				<div className="my-4 flex justify-center">
+					<Link to={pathTo.favorites} className="text-sky-500 underline">
+						CHECK OUT MY LIST OF FAVORITES
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

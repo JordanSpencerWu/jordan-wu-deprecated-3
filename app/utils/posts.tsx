@@ -3,6 +3,7 @@ import uniq from "uniq";
 import * as post_1 from "~/routes/posts/how-to-create-a-website-with-remix.mdx";
 
 type Meta = {
+	description: string;
 	postImageUrl: string;
 	published: string;
 	readingTimeInMinute: number;
