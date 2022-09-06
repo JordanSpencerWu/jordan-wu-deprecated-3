@@ -12,23 +12,23 @@ export const headers: HeadersFunction = () => {
 
 export default function Index() {
 	return (
-		<div className="w-full h-full flex flex-col p-[16px] text-lg">
+		<div className="w-full h-full flex flex-col p-[16px] prose lg:prose-xl text-xl">
 			<p>
-				Welcome! My name is Jordan and I will be blogging about everything!
-				There's so much to learn in life and the best way to learn is to write a
-				blog about it. It's a good way to remember the learnings and to share
-				it!
+				Welcome to my website! My name is Jordan and I will be blogging about
+				everything! There's so much to learn in life and the best way to learn
+				is to write a blog about it. It's a good way to remember the learnings
+				and to share it!
 			</p>
 			<p className="mt-4">
-				A little bit about me. I work as a software engineer and enjoy building
-				products for people! On my free time I enjoy listening to music! I would
-				spend hours each week finding new songs to listen to. I love music so
-				much that my dream is to become a music producer and DJ.
+				A little bit about me. For work I'm a software engineer and enjoy
+				building products for people! On my free time I enjoy listening to
+				music! I would spend hours each week finding new songs to listen to. I
+				love music so much that my dream is to become a music producer and DJ.
 			</p>
 			<p className="mt-4">
-				I'm in the process of planning out my dream and creating the habits that
-				will help me get there. On this website I will be sharing my favorite
-				songs in a Spotify playlist. I'm hoping to find my own sound and to be
+				I'm in the process of creating the good habits to help me become a music
+				producer and DJ. On this website I will be sharing my favorite songs and
+				blogs about what I'm learning. I'm hoping to find my own sound and to be
 				able to create great music!
 			</p>
 			<blockquote

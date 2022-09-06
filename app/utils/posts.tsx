@@ -1,6 +1,6 @@
 import uniq from "uniq";
 
-import * as post_1 from "~/routes/posts/how-to-create-a-website-with-remix.mdx";
+import * as post_1 from "~/routes/posts/how-to-create-your-own-website-using-remix.mdx";
 
 type Meta = {
 	description: string;

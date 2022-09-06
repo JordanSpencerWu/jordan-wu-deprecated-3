@@ -1,0 +1,39 @@
+---
+meta:
+  description: How to create your own website using Remix.
+  postImageUrl: https://s3.us-west-2.amazonaws.com/jordanwu.xyz.images/how-to-create-your-own-website-using-remix.jpg
+  published: 2022-09-05T22:43:27.848Z
+  readingTimeInMinute: 5
+  tags: ["web development"]
+  title: How To Create Your Own Website Using Remix
+
+headers:
+  Cache-Control: no-cache
+---
+
+import BlogPostHeading from "~/components/BlogPostHeading";
+
+<BlogPostHeading {...attributes.meta} />
+
+Why did I pick Remix to create my website while there are many other alternatives? If I didn't know how to code I could've used a popular website builder. But since I know [React](https://reactjs.org), I went with a React web framework.
+
+React is a popular user interface library that allows developers to create reusable components that are declarative and self-contained.
+
+A web framework is used to create a web client that allows users to interact with your application on a browser.
+
+[Remix](https://remix.run) is a full stack web framework that is used to create web clients. I started
+learning this framework after reading their [blog](https://remix.run/blog/remix-vs-next) where they compared it to [Next.js](https://nextjs.org). Knowing my goal is to create my own blog website. I decided to go with Remix for speed and performance.
+
+The best way to learn Remix is by reading their [docs](https://remix.run/docs) and doing their [tutorial](https://remix.run/docs/en/v1/tutorials/jokes). As mentioned it's a full stack web framework that can serve your full stack application needs and also fit perfectly into the "Backend for your Frontend" architecture known as BFF strategy. What I like about Remix is it's server-side rendering "SSR'' and MDX support, both are great for a blog website.
+
+In the docs there's a section for styling Remix. I recommend going with [Tailwind CSS](https://tailwindcss.com) and going through [their setup steps](https://tailwindcss.com/docs/guides/remix). Tailwind CSS is a utility-first CSS framework that allows you to style your website using utility classes. It's optimized for production and only generates the utility class CSS you are actually using in your project. It works well with mobile-first responsive design, supports dark mode, and is very customizable through it's configurations.
+
+As mentioned before Remix has [MDX](https://mdxjs.com) support. MDX allows you to use JSX in your [markdown](https://www.markdownguide.org/) content. This gives you flexibility to add anything in your blog post that is not markdown. You can use a Tailwind CSS plugin to style your MDX called [typography-plugin](https://tailwindcss.com/docs/typography-plugin). And for syntax highlighting you can use [rehype-highlight](https://github.com/rehypejs/rehype-highlight), the setup steps are [here](https://remix.run/docs/en/v1/guides/mdx#advanced-configuration).
+
+For storing your blog post images you can use an image hosting service. For me I used [Amazon S3](https://aws.amazon.com/s3/). The free tier gives you 5GB of storage and allows you to scale as your website gets more traffic. Its pay-as-you-go approach for pricing is great for paying what you are using and lets you rent more resources on-demand.
+
+Once you're done creating your website using Remix, it's time to buy a domain name. A domain name is a unique identifier that all browsers use to find the right Internet Protocol "IP" address that stores all your web resources. You can buy a domain at any publicly traded Internet domain registrar. I used [Google Domains](https://domains.google) and bought a domain with a top-level domain of "xyz", commonly used in the Web3 space.
+
+Now for a deployment. When you create your Remix project you can pick a deployment target. We can use any web hosting service that can deploy a NodeJS application. I went with [Vercel](https://vercel.com) a cloud platform that enables developers to host websites and web services. It has many integrations include one for [GitHub](https://vercel.com/docs/concepts/git/vercel-for-github) and docs on [how to setup your custom domain](https://vercel.com/docs/concepts/projects/custom-domains). Going through those steps will allow you to store your Remix project in GitHub and Vercel will deploy your web application every time you commit to your main branch.
+
+This was how I created my website using Remix and the process I went through. It was a fun process and hope you learned something!
