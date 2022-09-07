@@ -1,9 +1,10 @@
 import { json } from "@remix-run/node";
 import {
+	Link,
 	useLoaderData,
+	useLocation,
 	useNavigate,
 	useSearchParams,
-	Link,
 } from "@remix-run/react";
 
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
@@ -35,9 +36,14 @@ export default function Index() {
 	const posts: PostMeta[] = useLoaderData();
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
+	const location = useLocation();
+
+	const state = {
+		previousPathname: location.pathname,
+	};
 
 	function handleClick(slug: string) {
-		navigate(`${slug}?${searchParams.toString()}`);
+		navigate(`${slug}?${searchParams.toString()}`, { state });
 	}
 
 	return (
@@ -118,7 +124,11 @@ export default function Index() {
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
 				<div className="my-4 flex justify-center">
-					<Link to={pathTo.favorites} className="text-sky-500 underline">
+					<Link
+						to={pathTo.favorites}
+						state={state}
+						className="text-sky-500 underline"
+					>
 						CHECK OUT MY LIST OF FAVORITES
 					</Link>
 				</div>

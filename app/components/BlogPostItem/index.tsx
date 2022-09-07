@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "@remix-run/react";
+import { useNavigate, useSearchParams, useLocation } from "@remix-run/react";
 import { useSpring, animated } from "react-spring";
 
 import Tag from "~/components/Tag";
@@ -23,6 +23,7 @@ export default function BlogPostItem(props: Props) {
 		title,
 	} = props;
 
+	const location = useLocation();
 	const [searchParams] = useSearchParams();
 	const [fadeInStyles] = useSpring(() => FADE_IN_SPRING_PROPS);
 	const navigate = useNavigate();

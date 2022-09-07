@@ -12,7 +12,7 @@ export const headers: HeadersFunction = () => {
 
 export default function Index() {
 	return (
-		<div className="w-full h-full flex flex-col p-[16px] prose lg:prose-xl text-xl">
+		<div className="w-full h-full flex flex-col p-[16px] lg:prose-xl text-xl">
 			<p>
 				Welcome to my website! My name is Jordan and I will be blogging about
 				everything! There's so much to learn in life and the best way to learn
@@ -44,7 +44,7 @@ export default function Index() {
 					Jordan Wu
 				</p>
 			</blockquote>
-			<div className="w-full flex justify-center mt-4">
+			{/* <div className="w-full flex justify-center mt-4">
 				<div className="flex justify-evenly w-8/12">
 					<a
 						href="https://www.instagram.com/jordanwu.xyz/"
@@ -81,7 +81,7 @@ export default function Index() {
 						/>
 					</a>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
