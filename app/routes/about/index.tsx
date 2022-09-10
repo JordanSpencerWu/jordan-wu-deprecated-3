@@ -26,10 +26,10 @@ export default function Index() {
 				love music so much that my dream is to become a music producer and DJ.
 			</p>
 			<p className="mt-4">
-				I'm in the process of creating the good habits to help me become a music
+				I'm in the process of creating good habits to help me become a music
 				producer and DJ. On this website I will be sharing my favorite songs and
-				blogs about what I'm learning. I'm hoping to find my own sound and to be
-				able to create great music!
+				blogging about what I'm learning. I'm hoping to find my own sound and to
+				be able to create great music!
 			</p>
 			<blockquote
 				className="mt-4 p-6 border-l-8 border-black border-solid text-2xl
