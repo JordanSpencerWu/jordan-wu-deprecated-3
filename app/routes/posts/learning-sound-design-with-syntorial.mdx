@@ -1,0 +1,73 @@
+---
+meta:
+  description: Learning sound design with Syntorial.
+  postImageUrl: https://s3.us-west-2.amazonaws.com/jordanwu.xyz.images/learning-sound-design-with-syntorial.jpg
+  published: 2022-09-10T15:44:11.356Z
+  readingTimeInMinute: 5
+  tags: ["sound design"]
+  title: Learning Sound Design With Syntorial
+
+headers:
+  Cache-Control: no-cache
+---
+
+import BlogPostHeading from "~/components/BlogPostHeading";
+
+<BlogPostHeading {...attributes.meta} />
+
+What is Syntorial and why pay for this software program to learn sound design? [Syntorial](https://www.syntorial.com/) is a video game-like training software that teaches you how to program soft synth patches. It includes many video lessons, challenges, and quizzes. After completing all the lessons you should have a good understanding of sound design and how to program patches on a synth. I highly recommend buying this software to learn how to use a soft synth and if you want to become a sound designer.
+
+The more you learn and research about sound design the better. Syntorial in my opinion is a good starting point to sound design and understanding how to use a subtractive synth. You will be learning how to use the synth to create presets also known as synth patches. There are additional lesson packs for popular soft synth like [Serum](https://xferrecords.com/products/serum), [Massive](https://www.native-instruments.com/en/products/komplete/synths/massive), and [Sylenth1](https://www.lennardigital.com/sylenth1). Highly recommend picking one soft synth to master before exploring others.
+
+All the lessons are well structured and build upon each other. It will be going over all the sections, kobs, sliders and dropdown selections on a soft synth. Each lesson focuses on teaching you one small section of the soft synth. It's a lot easier to learn a small part of a synth at a time. The end goal is to learn how to create a sound by ear.
+
+### Lessons
+
+<details>
+<summary>1. Your Basic Sound</summary>
+
+In this lesson it will learn about an oscillator and how it's used to generate a basic waveform. A waveform represents a signal as a function of time and when you send the waveform to an output source. The waveform will create a sound that you hear through your headphones or audio speakers. Syntorial goes through two common waveforms the Saw and Square/Pulse but did not go over Sine. The focus is on using your ears to know which waveform to use to create a sound.
+
+The Saw waveform is bright and edgy, it's an all purpose waveform that is used for many things. The Square/Pulse has a video game like quality, a more artificial sounding, and it's good for bass patches.
+
+What the lesson did not talk about is harmonics that I feel is an important concept in sound design. A harmonic is a wave with a frequency that is a positive integer multiple of the fundamental frequency. The Saw waveform has both even and odd harmonics which makes it a good all purpose waveform while the Square/Pulse only has odd harmonics which makes it sound hollow.
+
+</details>
+
+<details>
+<summary>2. Brightness</summary>
+
+Low pass filter determines the brightness of your sound. There will be a cutoff knob that represents the cutoff frequency and as you turn the knob counter clockwise you are removing any frequency above your cutoff frequency. What you should be thinking as you use this knob is when it's all the way turned clockwise, your cutoff frequency is at its max value and you did not remove any frequencies from the waveform. As you move it counter clockwise, you are removing frequencies and that is changing both the waveform and sound. Remember when you change the waveform you change the sound. That's what it means by determining the brightness of the sound. For a brighter sound move the knob clockwise and for a rounder sound move the knob counter clockwise. As you turn the knob all the way counter clockwise, you get no signal which is no sound because you removed all the frequencies in the waveform.
+
+There's a common side effect when using the low pass filter. As you remove frequencies and make the sound rounder. The volume has decreased. What you can do is increase the volume using the main volume knob.
+
+</details>
+
+<details>
+<summary>3. Volume, Press and Release</summary>
+
+The amp envelope modulates the synth volume over time. It goes over the attack stage. This stage happens when you press on the key and the slider determines how long it will take your sound to go full volume. This is good for fading a sound in and good for pads or ambient sounds. For a string attack add a small fade in. The release stage happens when you release the key and it determines how long it takes the sound to go silent. This is good for fading a sound out and great for pads or ambient sounds. You can use fade in and out on any leads or bass sounds.
+
+</details>
+
+<details>
+<summary>4. Expanding Your Basic Sound</summary>
+
+Many synths give you multiple oscillators for you to use to create your initial waveform. One of the most common ways to use two oscillators is called doubling and transposing. For doubling change the mix knob to 50/50, this allows you to use 50% of the first oscillator and 50% of the second oscillator. But it does not have to be 50/50, you can do 70/30 and lower the transposing waveform so that the high frequencies are lowered. For the transposing you can turn the semitone knob where a semitone is the next key. It's common to turn the semitone knob to a fifth of an octave (7 semitone above) or an octave (12 semitone). Keep in mind when you are transposing, you are adding higher frequencies to the waveform.
+
+</details>
+
+<details>
+<summary>5. Brightness, Press and Release</summary>
+
+The filter envelope modulates the filter cutoff frequency. The cutoff frequency knob determines the darkest point and the envelope amount knob determines the brightest point of your sound.
+
+![Filter envelope](https://s3.us-west-2.amazonaws.com/jordanwu.xyz.images/learning-sound-design-with-syntorial-1.png "Filter envelope cutoff frequency and envelope amount")
+
+The filter envelope attack stage happens when you press on the key. It determines how long it takes your sound starting from the cutoff frequency to its brightest point that is determined by the envelope amount knob.
+
+The filter envelope release stage happens when you release the key. It determines how long it takes the sound to go back down to your cutoff frequency also known as your darkest point.
+
+![Filter envelope with attack and release stage](https://s3.us-west-2.amazonaws.com/jordanwu.xyz.images/learning-sound-design-with-syntorial-2.png "Filter envelope with attack and release stage")
+
+</details>

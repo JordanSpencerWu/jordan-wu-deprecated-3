@@ -49,7 +49,7 @@ export default function BlogPostItem(props: Props) {
 							<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
 								{title}
 							</p>
-							<p className="font-medium text-sm my-2 inline-block">
+							<p className="font-medium text-sm mt-2 inline-block">
 								<time
 									className="after:content-['\00b7'] after:text-[18px] after:align-middle after:mx-[2px]"
 									dateTime={published}
@@ -62,7 +62,7 @@ export default function BlogPostItem(props: Props) {
 						<img
 							alt="blog post"
 							src={postImageUrl}
-							className="rounded w-3/10 h-[62px]"
+							className="rounded w-[118px] h-auto"
 						/>
 					</div>
 				</div>
