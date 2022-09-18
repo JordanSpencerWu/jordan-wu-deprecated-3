@@ -45,7 +45,7 @@ export default function BlogPostItem(props: Props) {
 			<article className="w-full py-2">
 				<div className="px-4">
 					<div className="flex justify-between mt-2">
-						<div>
+						<div className="pr-4">
 							<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
 								{title}
 							</p>
