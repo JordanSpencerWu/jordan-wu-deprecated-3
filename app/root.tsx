@@ -1,8 +1,9 @@
 import { Outlet, useNavigate, useLocation } from "@remix-run/react";
 import classNames from "classnames";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
+import { json } from "@remix-run/node";
 
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 
 // import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
 import Document from "~/components/Document";
@@ -11,6 +12,14 @@ import pathTo from "~/utils/pathTo";
 import pathToName from "~/utils/pathToName";
 import SearchProvider from "~/providers/SearchProvider";
 import styles from "~/tailwind.css";
+
+export type LoaderData = {
+	gaTrackingId: string | undefined;
+};
+
+export const loader: LoaderFunction = async () => {
+	return json<LoaderData>({ gaTrackingId: process.env.GA_TRACKING_ID });
+};
 
 export const links: LinksFunction = () => {
 	return [

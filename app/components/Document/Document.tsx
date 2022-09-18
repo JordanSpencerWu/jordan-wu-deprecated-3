@@ -5,7 +5,10 @@ import {
 	Meta,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from "@remix-run/react";
+
+import type { LoaderData } from "app/root";
 
 type Props = {
 	children: ReactNode;
@@ -13,6 +16,7 @@ type Props = {
 
 export default function Document(props: Props) {
 	const { children } = props;
+	const { gaTrackingId } = useLoaderData<LoaderData>();
 
 	return (
 		<html lang="en">
@@ -23,6 +27,28 @@ export default function Document(props: Props) {
 				<Links />
 			</head>
 			<body className="bg-white min-h-screen w-screen h-screen relative flex flex-col overflow-x-hidde animate-fade-in">
+				{process.env.NODE_ENV === "production" && gaTrackingId && (
+					<>
+						<script
+							async
+							src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+						/>
+						<script
+							async
+							id="gtag-init"
+							dangerouslySetInnerHTML={{
+								__html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaTrackingId}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+							}}
+						/>
+					</>
+				)}
 				{children}
 				<ScrollRestoration />
 				<Scripts />

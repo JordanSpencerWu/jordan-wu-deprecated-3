@@ -3,10 +3,10 @@ import { Outlet } from "@remix-run/react";
 
 export default function Posts() {
 	useEffect(() => {
-		const _article = document.getElementById("article");
+		const _post = document.getElementById("post");
 
-		if (_article) {
-			const _links = _article.getElementsByTagName("a");
+		if (_post) {
+			const _links = _post.getElementsByTagName("a");
 
 			for (let i = 0; i < _links.length; i++) {
 				_links[i].setAttribute("target", "_blank");
@@ -15,7 +15,7 @@ export default function Posts() {
 	});
 
 	return (
-		<article className="m-auto p-[16px] prose lg:prose-xl text-xl" id="article">
+		<article className="m-auto p-[16px] prose lg:prose-xl text-xl" id="post">
 			<Outlet />
 		</article>
 	);
