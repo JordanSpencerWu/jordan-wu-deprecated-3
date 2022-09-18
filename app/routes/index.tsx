@@ -95,7 +95,12 @@ export default function Index() {
 				<h4 className="text-md">FIND BY TOPICS</h4>
 				<div className="my-4 inline-flex flex-wrap gap-x-2 gap-y-2.5 text-[14px] leading-6">
 					{TAGS.map((tag) => (
-						<Tag key={tag} className="text-[18px] leading-6" clickable>
+						<Tag
+							key={tag}
+							className="text-[18px] leading-6"
+							clickable
+							isSingleFilter
+						>
 							{tag}
 						</Tag>
 					))}

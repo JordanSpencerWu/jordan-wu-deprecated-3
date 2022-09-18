@@ -13,6 +13,7 @@ interface Props extends DOMAttributes<HTMLElement> {
 	className?: string;
 	clickable?: boolean;
 	inPost?: boolean;
+	isSingleFilter?: boolean;
 }
 
 export default function Tag(props: Props) {
@@ -22,6 +23,7 @@ export default function Tag(props: Props) {
 		className,
 		clickable = false,
 		inPost = false,
+		isSingleFilter = false,
 		...restProps
 	} = props;
 
@@ -55,8 +57,11 @@ export default function Tag(props: Props) {
 				filters.push(children);
 			}
 
-			const stringFilters =
+			let stringFilters =
 				filters.length > 1 ? filters.join(",") : filters.toString();
+			if (isSingleFilter) {
+				stringFilters = children;
+			}
 
 			if (stringFilters) {
 				searchParams.set("filters", stringFilters);
