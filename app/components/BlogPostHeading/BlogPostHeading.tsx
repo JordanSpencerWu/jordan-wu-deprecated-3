@@ -14,7 +14,7 @@ export default function BlogPostHeading(props: PostMeta) {
 				Published on{" "}
 				<time dateTime={published}>{displayDate(published, longForm)}</time>
 			</p>
-			<BlogPostTags className="mt-4" tags={tags} />
+			<BlogPostTags className="my-4" tags={tags} />
 			<img
 				alt="blog post"
 				src={postImageUrl}
