@@ -1,4 +1,4 @@
-import { Outlet, useNavigate, useLocation } from "@remix-run/react";
+import { Outlet, useCatch, useNavigate, useLocation } from "@remix-run/react";
 import classNames from "classnames";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import { json } from "@remix-run/node";
@@ -88,6 +88,25 @@ export default function App() {
 					</main>
 				</Layout>
 			</SearchProvider>
+		</Document>
+	);
+}
+
+export function CatchBoundary() {
+	const caught = useCatch();
+
+	return (
+		<Document>
+			<Layout>
+				<main className="h-full w-full my-[60px]">
+					<div className="h-full flex flex-col justify-center items-center">
+						<div className="text-4xl -translate-y-20 text-center">
+							<h1>Status Code: {caught.status}</h1>
+							<h2>{caught.statusText}</h2>
+						</div>
+					</div>
+				</main>
+			</Layout>
 		</Document>
 	);
 }

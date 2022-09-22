@@ -16,7 +16,7 @@ type Props = {
 
 export default function Document(props: Props) {
 	const { children } = props;
-	const { gaTrackingId } = useLoaderData<LoaderData>();
+	const { gaTrackingId } = useLoaderData<LoaderData>() || {};
 
 	return (
 		<html lang="en">
