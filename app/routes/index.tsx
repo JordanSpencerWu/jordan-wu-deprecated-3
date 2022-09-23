@@ -56,7 +56,7 @@ export default function Index() {
 				</h3>
 			</div>
 			<div className="py-8 px-4 flex flex-col border-y border-nav-border-color border-solid">
-				<h4 className="text-md">RECENT POSTS</h4>
+				<h3 className="text-xl">RECENT POSTS</h3>
 				<ul className="w-full">
 					{posts.map((post) => (
 						<li
@@ -92,7 +92,7 @@ export default function Index() {
 				</ul>
 			</div>
 			<div className="py-8 px-4 flex flex-col">
-				<h4 className="text-md">FIND BY TOPICS</h4>
+				<h3 className="text-xl">FIND BY TOPICS</h3>
 				<div className="my-4 inline-flex flex-wrap gap-x-2 gap-y-2.5 text-[14px] leading-6">
 					{TAGS.map((tag) => (
 						<Tag
@@ -107,10 +107,11 @@ export default function Index() {
 				</div>
 			</div>
 			<div className="py-8 px-4 flex flex-col border-t border-nav-border-color border-solid">
-				<h4 className="text-md">CURRENT FAVORITE</h4>
+				<h3 className="text-xl">CURRENT FAVORITE</h3>
+				<h4 className="mt-2 mb-1 text-md">Track</h4>
 				<iframe
 					title="current favorite song"
-					className="my-4 rounded"
+					className="mb-4 rounded"
 					src="https://open.spotify.com/embed/track/7rZgu1GRVc82bB6fCKHxYj?utm_source=generator"
 					width="100%"
 					height="80"
@@ -118,15 +119,27 @@ export default function Index() {
 					allowFullScreen
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
+				<h4 className="mt-2 mb-1 text-md">Album</h4>
 				<iframe
 					title="current favorite album"
-					className="my-4 rounded"
+					className="mb-4 rounded"
 					src="https://open.spotify.com/embed/album/4yrjPmonSHiJIHum5TrqEe?utm_source=generator"
 					width="100%"
 					height="380"
 					frameBorder="0"
 					allowFullScreen
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+				></iframe>
+				<h4 className="mt-2 mb-1 text-md">DJ Set</h4>
+				<iframe
+					width="560"
+					height="315"
+					className="mb-4 w-full rounded"
+					src="https://www.youtube.com/embed/E9nrKitD05g"
+					title="YouTube video player"
+					frameBorder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowFullScreen
 				></iframe>
 				<div className="my-4 flex justify-center">
 					<Link
