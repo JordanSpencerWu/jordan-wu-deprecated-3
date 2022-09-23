@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { json } from "@remix-run/node";
 import {
 	Link,
@@ -6,6 +7,8 @@ import {
 	useNavigate,
 	useSearchParams,
 } from "@remix-run/react";
+import FadeLoader from "react-spinners/FadeLoader";
+import classNames from "classnames";
 
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 
@@ -17,6 +20,12 @@ import Tag from "~/components/Tag";
 import type { PostMeta } from "~/utils/posts";
 
 var ReactRotatingText = require("react-rotating-text");
+
+const INITIAL_LOADING_STATES = {
+	favoriteTrack: true,
+	favoriteAlbum: true,
+	favoriteDJLiveSet: true,
+};
 
 export const meta: MetaFunction = () => {
 	return { title: "jordanwu.xyz | Home" };
@@ -33,10 +42,21 @@ export async function loader() {
 }
 
 export default function Index() {
+	const [loadingStates, setLoadingStates] = useState(INITIAL_LOADING_STATES);
 	const posts: PostMeta[] = useLoaderData();
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
 	const location = useLocation();
+
+	const trackClass = classNames("mb-4 rounded", {
+		hidden: loadingStates.favoriteTrack,
+	});
+	const albumClass = classNames("mb-4 rounded", {
+		hidden: loadingStates.favoriteAlbum,
+	});
+	const LiveSetClass = classNames("mb-4 w-full rounded", {
+		hidden: loadingStates.favoriteDJLiveSet,
+	});
 
 	const state = {
 		previousPathname: location.pathname,
@@ -44,6 +64,12 @@ export default function Index() {
 
 	function handleClick(slug: string) {
 		navigate(`${slug}?${searchParams.toString()}`, { state });
+	}
+
+	function handleLoad(loadingState: string) {
+		const newLoadingStates = { [loadingState]: false };
+
+		setLoadingStates((prevState) => ({ ...prevState, ...newLoadingStates }));
 	}
 
 	return (
@@ -106,12 +132,14 @@ export default function Index() {
 					))}
 				</div>
 			</div>
-			<div className="py-8 px-4 flex flex-col border-t border-nav-border-color border-solid">
+			<div className="py-8 px-4 flex flex-col items-center border-t border-nav-border-color border-solid">
 				<h3 className="text-xl">CURRENT FAVORITE</h3>
 				<h4 className="mt-2 mb-1 text-md">Track</h4>
+				{loadingStates.favoriteTrack && <FadeLoader />}
 				<iframe
+					onLoad={() => handleLoad("favoriteTrack")}
 					title="current favorite song"
-					className="mb-4 rounded"
+					className={trackClass}
 					src="https://open.spotify.com/embed/track/7rZgu1GRVc82bB6fCKHxYj?utm_source=generator"
 					width="100%"
 					height="80"
@@ -120,9 +148,11 @@ export default function Index() {
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
 				<h4 className="mt-2 mb-1 text-md">Album</h4>
+				{loadingStates.favoriteAlbum && <FadeLoader />}
 				<iframe
+					onLoad={() => handleLoad("favoriteAlbum")}
 					title="current favorite album"
-					className="mb-4 rounded"
+					className={albumClass}
 					src="https://open.spotify.com/embed/album/4yrjPmonSHiJIHum5TrqEe?utm_source=generator"
 					width="100%"
 					height="380"
@@ -131,10 +161,12 @@ export default function Index() {
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
 				<h4 className="mt-2 mb-1 text-md">DJ Set</h4>
+				{loadingStates.favoriteDJLiveSet && <FadeLoader />}
 				<iframe
+					onLoad={() => handleLoad("favoriteDJLiveSet")}
 					width="560"
 					height="315"
-					className="mb-4 w-full rounded"
+					className={LiveSetClass}
 					src="https://www.youtube.com/embed/E9nrKitD05g"
 					title="YouTube video player"
 					frameBorder="0"

@@ -15,19 +15,17 @@ export const headers: HeadersFunction = () => {
 };
 
 export default function Index() {
-	const [loading, setLoading] = useState(true);
+	const [loadingPlaylist, setLoadingPlaylist] = useState(true);
 
 	function handleLoad() {
-		setLoading(false);
+		setLoadingPlaylist(false);
 	}
 
-	const showPlaylist = !loading;
-
-	const playlistClass = classNames("rounded-xl", { hidden: !showPlaylist });
+	const playlistClass = classNames("rounded-xl", { hidden: loadingPlaylist });
 
 	return (
 		<div className="w-full h-full flex justify-center items-center px-4 py-2">
-			{!showPlaylist && <FadeLoader />}
+			{loadingPlaylist && <FadeLoader />}
 			<iframe
 				title="Spotify Playlist"
 				className={playlistClass}
