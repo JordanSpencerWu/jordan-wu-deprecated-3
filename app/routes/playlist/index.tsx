@@ -14,7 +14,7 @@ export const headers: HeadersFunction = () => {
 	};
 };
 
-export default function Index() {
+export default function PlaylistRoute() {
 	const [loadingPlaylist, setLoadingPlaylist] = useState(true);
 
 	function handleLoad() {

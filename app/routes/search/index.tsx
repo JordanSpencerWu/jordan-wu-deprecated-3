@@ -31,7 +31,7 @@ export async function loader() {
 	return json(POSTS);
 }
 
-export default function Index() {
+export default function SearchRoute() {
 	const posts: PostMeta[] = useLoaderData();
 	const [searchParams, setSearchParams] = useSearchParams();
 	const location = useLocation();

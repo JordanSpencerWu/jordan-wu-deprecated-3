@@ -41,7 +41,7 @@ export async function loader() {
 	return json(POSTS);
 }
 
-export default function Index() {
+export default function HomeRoute() {
 	const [loadingStates, setLoadingStates] = useState(INITIAL_LOADING_STATES);
 	const posts: PostMeta[] = useLoaderData();
 	const [searchParams] = useSearchParams();

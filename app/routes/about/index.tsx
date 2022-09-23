@@ -10,7 +10,7 @@ export const headers: HeadersFunction = () => {
 	};
 };
 
-export default function Index() {
+export default function AboutRoute() {
 	return (
 		<div className="w-full h-full flex flex-col p-[16px] lg:prose-xl text-xl">
 			<p>
