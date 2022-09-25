@@ -74,11 +74,11 @@ export default function Tag(props: Props) {
 					tag: children,
 				};
 				setSearchTerm("");
-				navigate(`${pathTo.search}?${searchParams.toString()}`, {
+				navigate(pathTo.search(searchParams.toString()), {
 					state,
 				});
 			} else {
-				navigate(`${pathTo.search}?${searchParams.toString()}`, {
+				navigate(pathTo.search(searchParams.toString()), {
 					replace: true,
 				});
 			}

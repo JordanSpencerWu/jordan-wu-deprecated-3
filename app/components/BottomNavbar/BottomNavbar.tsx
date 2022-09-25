@@ -18,22 +18,22 @@ const NAVBAR_LINKS = [
 	{
 		ActiveIcon: HomeIcon,
 		Icon: OutlineHomeIcon,
-		to: pathTo.home,
+		pathName: pathTo.home,
 	},
 	{
 		ActiveIcon: SearchIcon,
 		Icon: OutlineSearchIcon,
-		to: pathTo.search,
+		pathName: pathTo.search,
 	},
 	{
 		ActiveIcon: PlaylistIcon,
 		Icon: OutlinePlaylistIcon,
-		to: pathTo.playlist,
+		pathName: pathTo.playlist,
 	},
 	{
 		ActiveIcon: AboutIcon,
 		Icon: OutlineAboutIcon,
-		to: pathTo.about,
+		pathName: pathTo.about,
 	},
 ];
 
@@ -52,12 +52,12 @@ export default function BottomNavbar() {
 		<nav className="bg-white z-[1] fixed bottom-0 left-0 h-[60px] w-full border-t border-nav-border-color border-solid md:hidden">
 			<ol className="w-full h-full flex justify-around items-center">
 				{NAVBAR_LINKS.map((link) => {
-					const { ActiveIcon, Icon, to } = link;
+					const { ActiveIcon, Icon, pathName } = link;
 					const isActive =
-						location.pathname === link.to || previousPathname === link.to;
+						location.pathname === pathName() || previousPathname === pathName();
 
 					return (
-						<NavLink key={to} to={`${to}?${searchParams.toString()}`}>
+						<NavLink key={pathName()} to={pathName(searchParams.toString())}>
 							{isActive ? <ActiveIcon size={24} /> : <Icon size={24} />}
 						</NavLink>
 					);

@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { useSearchParams, useNavigate, useLocation } from "@remix-run/react";
 import { BsSearch } from "react-icons/bs";
 import { MdClose } from "react-icons/md";
+import classNames from "classnames";
 
 import type { ChangeEvent } from "react";
 
@@ -9,7 +10,12 @@ import pathToName, { SEARCH_PATH_NAME } from "~/utils/pathToName";
 import pathTo from "~/utils/pathTo";
 import { SearchContext } from "~/providers/SearchProvider";
 
-export default function SearchBar() {
+type Props = {
+	className?: string;
+};
+
+export default function SearchBar(props: Props) {
+	const { className = "" } = props;
 	const [searchTerm, setSearchTerm] = useContext(SearchContext);
 	const [searchParams] = useSearchParams();
 	const location = useLocation();
@@ -27,7 +33,7 @@ export default function SearchBar() {
 
 	function handleClearSearch() {
 		searchParams.delete("q");
-		navigate(`${pathTo.search}?${searchParams.toString()}`, {
+		navigate(pathTo.search(searchParams.toString()), {
 			replace: true,
 		});
 		setSearchTerm("");
@@ -42,14 +48,19 @@ export default function SearchBar() {
 			searchParams.delete("q");
 		}
 
-		navigate(`${pathTo.search}?${searchParams.toString()}`, {
+		navigate(pathTo.search(searchParams.toString()), {
 			replace: true,
 		});
 		setSearchTerm(value);
 	}
 
+	const containerClass = classNames(
+		"h-[40px] w-full m-0 p-[16px] flex items-center text-lg font-semibold rounded-lg bg-[#edeced] text-[#838383]",
+		className
+	);
+
 	return (
-		<div className="h-[40px] w-full m-0 p-[16px] flex items-center text-lg font-semibold rounded-lg bg-[#edeced] text-[#838383]">
+		<div className={containerClass}>
 			<BsSearch size={18} fill="#838383" />
 			<div className="pl-[12px] relative flex grow items-center">
 				<input

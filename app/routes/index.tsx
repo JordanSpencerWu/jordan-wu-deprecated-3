@@ -175,7 +175,7 @@ export default function HomeRoute() {
 				></iframe>
 				<div className="my-4 flex justify-center">
 					<Link
-						to={pathTo.favorites}
+						to={pathTo.favorites(searchParams.toString())}
 						state={state}
 						className="text-sky-500 underline"
 					>

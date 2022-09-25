@@ -1,5 +1,4 @@
 import { Outlet, useCatch, useNavigate, useLocation } from "@remix-run/react";
-import classNames from "classnames";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import { json } from "@remix-run/node";
 
@@ -9,7 +8,6 @@ import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import Document from "~/components/Document";
 import Layout from "~/components/Layout";
 import pathTo from "~/utils/pathTo";
-import pathToName from "~/utils/pathToName";
 import SearchProvider from "~/providers/SearchProvider";
 import styles from "~/tailwind.css";
 
@@ -73,17 +71,11 @@ export default function App() {
 	// 	}
 	// }, []);
 
-	const pathName = pathToName[location.pathname];
-
-	const mainClass = classNames("h-full w-full mb-[60px]", {
-		"mt-[60px]": Boolean(pathName),
-	});
-
 	return (
 		<Document>
 			<SearchProvider>
 				<Layout>
-					<main className={mainClass}>
+					<main className="h-full w-full my-[60px] md:mb-0">
 						<Outlet />
 					</main>
 				</Layout>
@@ -94,6 +86,11 @@ export default function App() {
 
 export function CatchBoundary() {
 	const caught = useCatch();
+	const navigate = useNavigate();
+
+	setTimeout(() => {
+		navigate(pathTo.home());
+	}, 3000);
 
 	return (
 		<Document>
@@ -115,7 +112,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
 	const navigate = useNavigate();
 
 	setTimeout(() => {
-		navigate(pathTo.home);
+		navigate(pathTo.home());
 	}, 3000);
 
 	return (
