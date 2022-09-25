@@ -117,7 +117,7 @@ export default function SearchRoute() {
 			)}
 			{emptySearchResult && (
 				<div className="h-full w-full p-4 text-2xl flex justify-center items-center">
-					<p className="text-center break-all">
+					<p className="w-full text-center break-words">
 						Sorry could not find any matches for:{" "}
 						<b className="font-bold">{searchTerm}</b>
 					</p>

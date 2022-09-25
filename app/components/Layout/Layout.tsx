@@ -5,7 +5,7 @@ import { useSpring, animated } from "react-spring";
 import type { ReactNode } from "react";
 
 import BottomNavbar from "~/components/BottomNavbar";
-import Navbar from "~/components/TopNavbar";
+import TopNavbar from "~/components/TopNavbar";
 
 type Props = {
 	children: ReactNode;
@@ -37,7 +37,7 @@ export default function Layout(props: Props) {
 				style={fadeInStyles}
 				className="w-full flex flex-col flex-1"
 			>
-				<Navbar />
+				<TopNavbar />
 				{children}
 			</animated.div>
 			<BottomNavbar />

@@ -49,7 +49,7 @@ export default function BottomNavbar() {
 	const previousPathname = state?.previousPathname;
 
 	return (
-		<nav className="bg-white z-[1] fixed bottom-0 left-0 h-[60px] w-full border-t border-nav-border-color border-solid">
+		<nav className="bg-white z-[1] fixed bottom-0 left-0 h-[60px] w-full border-t border-nav-border-color border-solid md:hidden">
 			<ol className="w-full h-full flex justify-around items-center">
 				{NAVBAR_LINKS.map((link) => {
 					const { ActiveIcon, Icon, to } = link;

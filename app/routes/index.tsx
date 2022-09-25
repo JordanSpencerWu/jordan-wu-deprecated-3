@@ -132,7 +132,7 @@ export default function HomeRoute() {
 					))}
 				</div>
 			</div>
-			<div className="py-8 px-4 flex flex-col items-center border-t border-nav-border-color border-solid">
+			<div className="py-8 px-4 flex flex-col border-t border-nav-border-color border-solid">
 				<h3 className="text-xl">CURRENT FAVORITE</h3>
 				<h4 className="mt-2 mb-1 text-md">Track</h4>
 				{loadingStates.favoriteTrack && <FadeLoader />}
