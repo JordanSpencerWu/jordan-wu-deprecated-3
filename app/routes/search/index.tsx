@@ -6,6 +6,7 @@ import { useLoaderData, useSearchParams, useLocation } from "@remix-run/react";
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 import type { MouseEvent } from "react";
 
+import SearchBar from "~/components/SearchBar";
 import { SearchContext } from "~/providers/SearchProvider";
 import BlogPostItem from "~/components/BlogPostItem";
 import POSTS, { TAGS } from "~/utils/posts";
@@ -90,7 +91,10 @@ export default function SearchRoute() {
 	const emptySearchResult = searchTerm && displayPosts.length === 0;
 
 	return (
-		<div className="w-screen h-full flex flex-col">
+		<div className="w-full h-full flex flex-col">
+			<div className="hidden md:flex pt-4">
+				<SearchBar />
+			</div>
 			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden text-[18px] leading-6">
 				{orderedTags.map((tag) => {
 					const active = filters.includes(tag);

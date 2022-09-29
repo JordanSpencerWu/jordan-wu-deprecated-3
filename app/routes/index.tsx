@@ -73,7 +73,7 @@ export default function HomeRoute() {
 	}
 
 	return (
-		<div className="w-screen flex flex-col">
+		<div className="w-full flex flex-col">
 			<div className="flex flex-col px-4 py-24">
 				<h1 className="text-7xl">welcome!</h1>
 				<h3 className="mt-2 text-2xl min-h-[96px]">
@@ -109,7 +109,7 @@ export default function HomeRoute() {
 									<img
 										alt="blog post"
 										src={post.postImageUrl}
-										className="rounded w-[118px] h-auto"
+										className="rounded w-[118px] h-[74px] object-fill"
 									/>
 								</div>
 							</article>

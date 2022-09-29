@@ -62,7 +62,7 @@ export default function BlogPostItem(props: Props) {
 						<img
 							alt="blog post"
 							src={postImageUrl}
-							className="rounded w-[118px] h-auto"
+							className="rounded w-[118px] h-[74px] object-fill"
 						/>
 					</div>
 				</div>

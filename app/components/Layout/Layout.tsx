@@ -35,7 +35,7 @@ export default function Layout(props: Props) {
 		<>
 			<animated.div
 				style={fadeInStyles}
-				className="w-full flex flex-col flex-1"
+				className="w-full flex flex-col flex-1 items-center"
 			>
 				<TopNavbar />
 				{children}

@@ -31,22 +31,21 @@ export default function AboutRoute() {
 				blogging about what I'm learning. I'm hoping to find my own sound and to
 				be able to create great music!
 			</p>
-			<blockquote
+			{/* <blockquote
 				className="mt-4 p-6 border-l-8 border-black border-solid text-2xl
 									 before:content-['\201c'] before:text-[100px] before:block
 									 before:mb-[-4px] before:mt-4"
 			>
 				<p className="font-['Gelasio'] font-bold italic">
-					My dream is to be one of the greatest music producer and DJ that ever
-					lived.
+					My dream is to be a music producer and DJ.
 				</p>
 				<p className="mt-2 font-['Open_Sans'] text-right font-bold before:content-['\2014\0020']">
 					Jordan Wu
 				</p>
-			</blockquote>
-			{/* <div className="w-full flex justify-center mt-4">
+			</blockquote> */}
+			<div className="w-full flex justify-center mt-4">
 				<div className="flex justify-evenly w-8/12">
-					<a
+					{/* <a
 						href="https://www.instagram.com/jordanwu.xyz/"
 						target="_blank"
 						rel="noreferrer"
@@ -67,7 +66,7 @@ export default function AboutRoute() {
 						target="_blank"
 					>
 						<img alt="youtube icon" src="/youtube.svg" height="32" width="32" />
-					</a>
+					</a> */}
 					<a
 						href="https://soundcloud.com/jordanwu_xyz/tracks"
 						target="_blank"
@@ -81,7 +80,7 @@ export default function AboutRoute() {
 						/>
 					</a>
 				</div>
-			</div> */}
+			</div>
 		</div>
 	);
 }

@@ -75,7 +75,7 @@ export default function App() {
 		<Document>
 			<SearchProvider>
 				<Layout>
-					<main className="h-full w-full my-[60px] md:mb-0">
+					<main className="h-full w-full max-w-[1140px] my-[60px] md:mb-0">
 						<Outlet />
 					</main>
 				</Layout>
@@ -95,7 +95,7 @@ export function CatchBoundary() {
 	return (
 		<Document>
 			<Layout>
-				<main className="h-full w-full my-[60px]">
+				<main className="h-full w-full max-w-[1140px] my-[60px]">
 					<div className="h-full flex flex-col justify-center items-center">
 						<div className="text-4xl -translate-y-20 text-center">
 							<h1>Status Code: {caught.status}</h1>
@@ -118,7 +118,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
 	return (
 		<Document>
 			<Layout>
-				<main className="h-full w-full my-[60px]">
+				<main className="h-full w-full max-w-[1140px] my-[60px]">
 					<div className="h-full flex flex-col justify-center items-center">
 						<p className="text-2xl font-bold">Oops! An error has occurred.</p>
 						<p className="text-xl">Redirecting back to Home...</p>

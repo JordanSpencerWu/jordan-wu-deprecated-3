@@ -21,10 +21,12 @@ export default function PlaylistRoute() {
 		setLoadingPlaylist(false);
 	}
 
-	const playlistClass = classNames("rounded-xl", { hidden: loadingPlaylist });
+	const playlistClass = classNames("rounded-xl max-w-[500px]", {
+		hidden: loadingPlaylist,
+	});
 
 	return (
-		<div className="w-full h-full flex justify-center items-center px-4 py-2">
+		<div className="w-full h-full flex justify-center items-center px-4 py-4">
 			{loadingPlaylist && <FadeLoader />}
 			<iframe
 				title="Spotify Playlist"
