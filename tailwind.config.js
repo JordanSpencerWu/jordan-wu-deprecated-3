@@ -10,6 +10,7 @@ delete colors["warmGray"];
 module.exports = {
 	content: ["./app/**/*.{ts,tsx,jsx,js}"],
 	darkMode: "class",
+	important: true,
 	theme: {
 		colors: {
 			"nav-border-color": "rgb(219, 219, 219)",
