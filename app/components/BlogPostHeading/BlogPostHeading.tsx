@@ -30,7 +30,7 @@ export default function BlogPostHeading(props: PostMeta) {
 			<img
 				alt="blog post"
 				src={postImageUrl}
-				className="mt-6 mb-0 h-[400px] object-contain w-full rounded"
+				className="mt-6 mb-0 max-h-[400px] object-contain w-full rounded"
 			/>
 		</div>
 	);
