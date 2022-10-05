@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 
 import BottomNavbar from "~/components/BottomNavbar";
 import TopNavbar from "~/components/TopNavbar";
+import Footer from "~/components/Footer";
 
 type Props = {
 	children: ReactNode;
@@ -39,6 +40,7 @@ export default function Layout(props: Props) {
 			>
 				<TopNavbar />
 				{children}
+				<Footer />
 			</animated.div>
 			<BottomNavbar />
 		</>

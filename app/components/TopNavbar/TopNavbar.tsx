@@ -47,7 +47,7 @@ export default function TopNavbar() {
 	}
 
 	const containerClass =
-		"bg-white z-[1] top-0 left-0 h-[60px] w-full px-[16px] border-b border-nav-border-color border-solid flex items-center justify-between absolute";
+		"absolute bg-white z-[1] top-0 left-0 h-[60px] w-full px-[16px] border-b border-nav-border-color border-solid flex items-center justify-between";
 
 	let mobileContent = pathName ? (
 		<h1 className="text-slate-900 font-bold text-2xl font-['Open_Sans'] md:hidden">
