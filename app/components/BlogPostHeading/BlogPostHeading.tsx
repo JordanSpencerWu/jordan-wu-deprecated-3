@@ -6,7 +6,8 @@ import type { PostMeta } from "~/utils/posts";
 
 export default function BlogPostHeading(props: PostMeta) {
 	const navigate = useNavigate();
-	const { title, published, postImageUrl, tags } = props;
+	const { meta, published, postImageUrl, tags } = props;
+	const { title } = meta;
 	const longForm = true;
 
 	function handleClick() {
@@ -21,7 +22,7 @@ export default function BlogPostHeading(props: PostMeta) {
 			>
 				Back
 			</button>
-			<h2 className="m-0 !important">{title}</h2>
+			<h2 className="!m-0">{title}</h2>
 			<p className="font-medium text-base m-0">
 				Published on{" "}
 				<time dateTime={published}>{displayDate(published, longForm)}</time>

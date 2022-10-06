@@ -58,7 +58,8 @@ export default function SearchRoute() {
 
 	const search = useMemo(() => {
 		const search = new Search("slug");
-		search.addIndex("title");
+		search.addIndex(["meta", "title"]);
+		search.addIndex("tags");
 
 		posts.forEach((post) => {
 			search.addDocument(post);

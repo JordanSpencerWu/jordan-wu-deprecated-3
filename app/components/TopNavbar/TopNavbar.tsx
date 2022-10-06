@@ -50,9 +50,12 @@ export default function TopNavbar() {
 		"absolute bg-white z-[1] top-0 left-0 h-[60px] w-full px-[16px] border-b border-nav-border-color border-solid flex items-center justify-between";
 
 	let mobileContent = pathName ? (
-		<h1 className="text-slate-900 font-bold text-2xl font-['Open_Sans'] md:hidden">
+		<header
+			role="banner"
+			className="text-slate-900 font-bold text-2xl font-['Open_Sans'] md:hidden"
+		>
 			{pathName}
-		</h1>
+		</header>
 	) : (
 		<MdArrowBack
 			className="cursor-pointer md:hidden"
@@ -68,13 +71,15 @@ export default function TopNavbar() {
 	return (
 		<div className={containerClass}>
 			{mobileContent}
-			<Link
-				to={pathTo.home(searchParams.toString())}
-				className="hidden text-slate-900 font-bold text-2xl font-['Open_Sans'] md:flex"
-			>
-				{WEBSITE_NAME}
-			</Link>
-			<div className="hidden md:flex text-lg">
+			<header role="banner">
+				<Link
+					to={pathTo.home(searchParams.toString())}
+					className="hidden text-slate-900 font-bold text-2xl font-['Open_Sans'] md:flex"
+				>
+					{WEBSITE_NAME}
+				</Link>
+			</header>
+			<nav className="hidden md:flex text-lg">
 				{NAVBAR_LINKS.map((link) => (
 					<NavLink
 						key={link.name}
@@ -84,7 +89,7 @@ export default function TopNavbar() {
 						{link.name}
 					</NavLink>
 				))}
-			</div>
+			</nav>
 			{/* <button type="button">
 				{showLightMode && <LightModeIcon size={24} className="animate-fade-in" onClick={toggleDarkMode} />}
 				{showDarkMode && (

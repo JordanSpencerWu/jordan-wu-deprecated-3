@@ -2,7 +2,11 @@ import { Outlet, useCatch, useNavigate, useLocation } from "@remix-run/react";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import { json } from "@remix-run/node";
 
-import type { LinksFunction, LoaderFunction } from "@remix-run/node";
+import type {
+	LinksFunction,
+	LoaderFunction,
+	MetaFunction,
+} from "@remix-run/node";
 
 // import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
 import Document from "~/components/Document";
@@ -10,6 +14,7 @@ import Layout from "~/components/Layout";
 import pathTo from "~/utils/pathTo";
 import SearchProvider from "~/providers/SearchProvider";
 import styles from "~/tailwind.css";
+import { WEBSITE_NAME } from "~/utils/pathToName";
 
 export type LoaderData = {
 	gaTrackingId: string | undefined;
@@ -56,6 +61,15 @@ export const links: LinksFunction = () => {
 		},
 	];
 };
+
+export const meta: MetaFunction = () => ({
+	author: "Jordan Wu",
+	charset: "utf-8",
+	description:
+		"The website provides many blog posts about a variety of topics including software engineering, DJ software, sound design, web development, etc.",
+	title: WEBSITE_NAME,
+	viewport: "width=device-width,initial-scale=1",
+});
 
 export default function App() {
 	const location = useLocation();

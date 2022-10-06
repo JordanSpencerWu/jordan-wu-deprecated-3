@@ -16,6 +16,10 @@ import displayDate from "~/utils/displayDate";
 import pathTo from "~/utils/pathTo";
 import POSTS, { TAGS } from "~/utils/posts";
 import Tag from "~/components/Tag";
+import {
+	POST_IMAGE_HEIGHT,
+	POST_IMAGE_WIDTH,
+} from "~/components/BlogPostItem/BlogPostItem";
 
 import type { PostMeta } from "~/utils/posts";
 
@@ -87,14 +91,16 @@ export default function HomeRoute() {
 					{posts.map((post) => (
 						<li
 							key={post.slug}
-							className="w-full cursor-pointer"
+							className="w-full cursor-pointer mt-4"
 							onClick={() => handleClick(post.slug)}
 						>
 							<article className="w-full py-2">
-								<div className="flex justify-between mt-2">
-									<div className="pr-4">
+								<div className="flex justify-between">
+									<div
+										className={`pr-4 w-[calc(100%_-_${POST_IMAGE_WIDTH}px)]`}
+									>
 										<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
-											{post.title}
+											{post.meta.title}
 										</p>
 										<p className="font-medium text-sm mt-2 inline-block">
 											<time
@@ -109,7 +115,7 @@ export default function HomeRoute() {
 									<img
 										alt="blog post"
 										src={post.postImageUrl}
-										className="rounded w-[118px] h-[74px] object-fill"
+										className={`rounded w-[${POST_IMAGE_WIDTH}px] h-[${POST_IMAGE_HEIGHT}px] object-fill`}
 									/>
 								</div>
 							</article>

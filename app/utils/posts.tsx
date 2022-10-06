@@ -8,15 +8,15 @@ import * as post_5 from "~/routes/posts/listening-to-dj-sets-on-1001-tracklists.
 
 type Meta = {
 	description: string;
-	postImageUrl: string;
-	published: string;
-	readingTimeInMinute: number;
-	tags: string[];
 	title: string;
 };
 
 type Attributes = {
 	meta: Meta;
+	postImageUrl: string;
+	published: string;
+	readingTimeInMinute: number;
+	tags: string[];
 };
 
 type Module = {
@@ -24,7 +24,7 @@ type Module = {
 	attributes: Attributes;
 };
 
-interface PostMeta extends Meta {
+interface PostMeta extends Attributes {
 	slug: string;
 }
 
@@ -33,7 +33,7 @@ export type { PostMeta };
 function postFromModule(module: Module): PostMeta {
 	return {
 		slug: "/posts/" + module.filename.replace(/\.mdx?$/, ""),
-		...module.attributes.meta,
+		...module.attributes,
 	};
 }
 
