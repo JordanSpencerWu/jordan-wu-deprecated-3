@@ -8,6 +8,16 @@
 	}
 }
 
+:root {
+	--post-image-height: 74px;
+	--post-image-width: 118px;
+}
+
+.post-image {
+	width: var(--post-image-width);
+	height: var(--post-image-height);
+}
+
 .search {
 	fill: rgb(131, 131, 131);
 }

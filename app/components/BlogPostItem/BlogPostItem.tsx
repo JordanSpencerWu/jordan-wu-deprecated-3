@@ -13,9 +13,6 @@ const FADE_IN_SPRING_PROPS = {
 	from: { opacity: 0 },
 };
 
-export const POST_IMAGE_HEIGHT = 74;
-export const POST_IMAGE_WIDTH = 118;
-
 export default function BlogPostItem(props: Props) {
 	const {
 		meta,
@@ -49,7 +46,7 @@ export default function BlogPostItem(props: Props) {
 			<article className="w-full py-2">
 				<div className="px-4">
 					<div className="flex justify-between mt-2">
-						<div className={`pr-4 w-[calc(100%_-_${POST_IMAGE_WIDTH}px)]`}>
+						<div className={`pr-4 w-[calc(100%_-_var(--post-image-width))]`}>
 							<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
 								{title}
 							</p>
@@ -66,7 +63,7 @@ export default function BlogPostItem(props: Props) {
 						<img
 							alt="blog post"
 							src={postImageUrl}
-							className={`rounded w-[${POST_IMAGE_WIDTH}px] h-[${POST_IMAGE_HEIGHT}px] object-fill`}
+							className="post-image rounded object-fill"
 						/>
 					</div>
 				</div>

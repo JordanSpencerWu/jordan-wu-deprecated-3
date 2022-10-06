@@ -16,10 +16,6 @@ import displayDate from "~/utils/displayDate";
 import pathTo from "~/utils/pathTo";
 import POSTS, { TAGS } from "~/utils/posts";
 import Tag from "~/components/Tag";
-import {
-	POST_IMAGE_HEIGHT,
-	POST_IMAGE_WIDTH,
-} from "~/components/BlogPostItem/BlogPostItem";
 
 import type { PostMeta } from "~/utils/posts";
 
@@ -97,7 +93,7 @@ export default function HomeRoute() {
 							<article className="w-full py-2">
 								<div className="flex justify-between">
 									<div
-										className={`pr-4 w-[calc(100%_-_${POST_IMAGE_WIDTH}px)]`}
+										className={`pr-4 w-[calc(100%_-_var(--post-image-width))]`}
 									>
 										<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
 											{post.meta.title}
@@ -115,7 +111,7 @@ export default function HomeRoute() {
 									<img
 										alt="blog post"
 										src={post.postImageUrl}
-										className={`rounded w-[${POST_IMAGE_WIDTH}px] h-[${POST_IMAGE_HEIGHT}px] object-fill`}
+										className="post-image rounded object-fill"
 									/>
 								</div>
 							</article>
