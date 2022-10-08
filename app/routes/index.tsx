@@ -4,7 +4,6 @@ import {
 	Link,
 	useLoaderData,
 	useLocation,
-	useNavigate,
 	useSearchParams,
 } from "@remix-run/react";
 import FadeLoader from "react-spinners/FadeLoader";
@@ -45,7 +44,6 @@ export default function HomeRoute() {
 	const [loadingStates, setLoadingStates] = useState(INITIAL_LOADING_STATES);
 	const posts: PostMeta[] = useLoaderData();
 	const [searchParams] = useSearchParams();
-	const navigate = useNavigate();
 	const location = useLocation();
 
 	const trackClass = classNames("mb-4 rounded", {
@@ -61,10 +59,6 @@ export default function HomeRoute() {
 	const state = {
 		previousPathname: location.pathname,
 	};
-
-	function handleClick(slug: string) {
-		navigate(`${slug}?${searchParams.toString()}`, { state });
-	}
 
 	function handleLoad(loadingState: string) {
 		const newLoadingStates = { [loadingState]: false };
@@ -85,36 +79,37 @@ export default function HomeRoute() {
 				<h3 className="text-xl">RECENT POSTS</h3>
 				<ul className="w-full">
 					{posts.map((post) => (
-						<li
-							key={post.slug}
-							className="w-full cursor-pointer mt-4"
-							onClick={() => handleClick(post.slug)}
-						>
-							<article className="w-full py-2">
-								<div className="flex justify-between">
-									<div
-										className={`pr-4 w-[calc(100%_-_var(--post-image-width))]`}
-									>
-										<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
-											{post.meta.title}
-										</p>
-										<p className="font-medium text-sm mt-2 inline-block">
-											<time
-												className="after:content-['\00b7'] after:text-[18px] after:align-middle after:mx-[2px]"
-												dateTime={post.published}
-											>
-												{displayDate(post.published)}
-											</time>
-											{post.readingTimeInMinute} min read
-										</p>
+						<li key={post.slug} className="w-full cursor-pointer mt-4">
+							<Link
+								to={`${post.slug}?${searchParams.toString()}`}
+								state={state}
+							>
+								<article className="w-full py-2">
+									<div className="flex justify-between">
+										<div
+											className={`pr-4 w-[calc(100%_-_var(--post-image-width))]`}
+										>
+											<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
+												{post.meta.title}
+											</p>
+											<p className="font-medium text-sm mt-2 inline-block">
+												<time
+													className="after:content-['\00b7'] after:text-[18px] after:align-middle after:mx-[2px]"
+													dateTime={post.published}
+												>
+													{displayDate(post.published)}
+												</time>
+												{post.readingTimeInMinute} min read
+											</p>
+										</div>
+										<img
+											alt="blog post"
+											src={post.postImageUrl}
+											className="post-image rounded object-fill"
+										/>
 									</div>
-									<img
-										alt="blog post"
-										src={post.postImageUrl}
-										className="post-image rounded object-fill"
-									/>
-								</div>
-							</article>
+								</article>
+							</Link>
 						</li>
 					))}
 				</ul>
