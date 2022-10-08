@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Outlet, useCatch, useNavigate, useLocation } from "@remix-run/react";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import { json } from "@remix-run/node";
@@ -102,9 +103,10 @@ export function CatchBoundary() {
 	const caught = useCatch();
 	const navigate = useNavigate();
 
-	setTimeout(() => {
-		navigate(pathTo.home());
-	}, 3000);
+	useEffect(() => {
+		const timer = setTimeout(() => navigate(pathTo.home()), 3000);
+		return () => clearTimeout(timer);
+	}, []);
 
 	return (
 		<Document>
@@ -125,9 +127,10 @@ export function CatchBoundary() {
 export function ErrorBoundary({ error }: { error: Error }) {
 	const navigate = useNavigate();
 
-	setTimeout(() => {
-		navigate(pathTo.home());
-	}, 3000);
+	useEffect(() => {
+		const timer = setTimeout(() => navigate(pathTo.home()), 3000);
+		return () => clearTimeout(timer);
+	}, []);
 
 	return (
 		<Document>
