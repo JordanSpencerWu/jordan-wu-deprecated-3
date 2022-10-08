@@ -28,6 +28,7 @@
     "react-rotating-text": "^1.4.1",
     "react-spinners": "^0.13.4",
     "react-spring": "^9.4.4",
+    "remark-toc": "^8.0.1",
     "uniq": "^1.0.1"
   },
   "devDependencies": {

@@ -15,7 +15,10 @@ export default function Posts() {
 	});
 
 	return (
-		<article className="m-auto p-[16px] prose lg:prose-xl text-xl" id="post">
+		<article
+			className="m-auto p-[16px] prose lg:prose-xl prose-code:before:content-none prose-code:after:content-none text-xl"
+			id="post"
+		>
 			<Outlet />
 		</article>
 	);
