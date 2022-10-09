@@ -28,11 +28,10 @@ export default function Document(props: Props) {
 				{process.env.NODE_ENV === "production" && gaTrackingId && (
 					<>
 						<script
-							async
 							src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+							async
 						/>
 						<script
-							async
 							id="gtag-init"
 							dangerouslySetInnerHTML={{
 								__html: `
@@ -40,13 +39,36 @@ export default function Document(props: Props) {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${gaTrackingId}', {
-                  page_path: window.location.pathname,
+									page_path: window.location.pathname,
                 });
-              `,
+								`,
 							}}
+							async
 						/>
 					</>
 				)}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							MathJax = {
+								tex: {
+									packages: ['base'],
+									inlineMath: [['($', '$)'], ['\\(', '\\)']],
+									displayMath: [['$$', '$$'], ['\\[', '\\]']],
+								},
+								startup: {
+									typeset: false
+								}
+							};
+						`,
+					}}
+				/>
+				<script
+					id="MathJax-script"
+					type="text/javascript"
+					src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"
+					async
+				/>
 				{children}
 				<ScrollRestoration />
 				<Scripts />

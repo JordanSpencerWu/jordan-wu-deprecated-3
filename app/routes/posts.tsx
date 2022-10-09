@@ -12,7 +12,13 @@ export default function Posts() {
 				_links[i].setAttribute("target", "_blank");
 			}
 		}
-	});
+
+		// @ts-ignore
+		if (MathJax) {
+			// @ts-ignore
+			MathJax.typeset();
+		}
+	}, []);
 
 	return (
 		<article
