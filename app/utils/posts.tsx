@@ -6,6 +6,7 @@ import * as post_3 from "~/routes/posts/harmonic-mixing-with-mixed-in-key.mdx";
 import * as post_4 from "~/routes/posts/buying-tracks-on-beatport.mdx";
 import * as post_5 from "~/routes/posts/listening-to-dj-sets-on-1001-tracklists.mdx";
 import * as post_6 from "~/routes/posts/using-warp-as-my-terminal.mdx";
+import * as post_7 from "~/routes/posts/learning-chord-and-melody-with-hooktheory.mdx";
 
 type Meta = {
 	description: string;
@@ -45,6 +46,7 @@ const ALL_POSTS = [
 	postFromModule(post_4),
 	postFromModule(post_5),
 	postFromModule(post_6),
+	postFromModule(post_7),
 ].reverse();
 
 const ALL_POST_TAGS = ALL_POSTS.reduce(
