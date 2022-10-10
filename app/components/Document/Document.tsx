@@ -53,7 +53,7 @@ export default function Document(props: Props) {
 							MathJax = {
 								tex: {
 									packages: ['base'],
-									inlineMath: [['($', '$)'], ['\\(', '\\)']],
+									inlineMath: [['($', '$)']],
 									displayMath: [['$$', '$$'], ['\\[', '\\]']],
 								},
 								startup: {

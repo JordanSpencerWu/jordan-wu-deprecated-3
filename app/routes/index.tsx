@@ -89,7 +89,7 @@ export default function HomeRoute() {
 										<div
 											className={`pr-4 w-[calc(100%_-_var(--post-image-width))]`}
 										>
-											<p className="max-w-7/10 pt-1 font-bold text-xl leading-5">
+											<p className="max-w-7/10 pt-1 font-bold text-xl leading-6">
 												{post.meta.title}
 											</p>
 											<p className="font-medium text-lg mt-2 inline-block">
