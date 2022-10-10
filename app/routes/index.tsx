@@ -70,13 +70,13 @@ export default function HomeRoute() {
 		<div className="w-full flex flex-col">
 			<div className="flex flex-col px-4 py-24">
 				<h1 className="text-7xl">welcome!</h1>
-				<h3 className="mt-2 text-2xl min-h-[96px]">
+				<h3 className="mt-2 text-3xl min-h-[108px]">
 					{`My name is Jordan and I'll be blogging about `}
 					<ReactRotatingText items={TAGS} random={true} />
 				</h3>
 			</div>
 			<div className="py-8 px-4 flex flex-col border-y border-nav-border-color border-solid">
-				<h3 className="text-xl">RECENT POSTS</h3>
+				<h3 className="text-2xl">RECENT POSTS</h3>
 				<ul className="w-full">
 					{posts.map((post) => (
 						<li key={post.slug} className="w-full cursor-pointer mt-4">
@@ -89,10 +89,10 @@ export default function HomeRoute() {
 										<div
 											className={`pr-4 w-[calc(100%_-_var(--post-image-width))]`}
 										>
-											<p className="max-w-7/10 pt-1 font-bold text-lg leading-5">
+											<p className="max-w-7/10 pt-1 font-bold text-xl leading-5">
 												{post.meta.title}
 											</p>
-											<p className="font-medium text-sm mt-2 inline-block">
+											<p className="font-medium text-lg mt-2 inline-block">
 												<time
 													className="after:content-['\00b7'] after:text-[18px] after:align-middle after:mx-[2px]"
 													dateTime={post.published}
@@ -115,7 +115,7 @@ export default function HomeRoute() {
 				</ul>
 			</div>
 			<div className="py-8 px-4 flex flex-col">
-				<h3 className="text-xl">FIND BY TOPICS</h3>
+				<h3 className="text-2xl">FIND BY TOPICS</h3>
 				<div className="my-4 inline-flex flex-wrap gap-x-2 gap-y-2.5 text-[14px] leading-6">
 					{TAGS.map((tag) => (
 						<Tag
@@ -130,9 +130,9 @@ export default function HomeRoute() {
 				</div>
 			</div>
 			<div className="py-8 px-4 flex flex-col border-t border-nav-border-color border-solid">
-				<h3 className="text-xl">CURRENT FAVORITE</h3>
-				<h4 className="mt-2 mb-1 text-md">Track</h4>
-				{loadingStates.favoriteTrack && <FadeLoader />}
+				<h3 className="text-2xl">CURRENT FAVORITE</h3>
+				<h4 className="mt-2 mb-1 text-xl">Track</h4>
+				{loadingStates.favoriteTrack && <FadeLoader className="m-auto" />}
 				<iframe
 					onLoad={() => handleLoad("favoriteTrack")}
 					title="current favorite song"
@@ -144,8 +144,8 @@ export default function HomeRoute() {
 					allowFullScreen
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
-				<h4 className="mt-2 mb-1 text-md">Album</h4>
-				{loadingStates.favoriteAlbum && <FadeLoader />}
+				<h4 className="mt-2 mb-1 text-xl">Album</h4>
+				{loadingStates.favoriteAlbum && <FadeLoader className="m-auto" />}
 				<iframe
 					onLoad={() => handleLoad("favoriteAlbum")}
 					title="current favorite album"
@@ -157,8 +157,8 @@ export default function HomeRoute() {
 					allowFullScreen
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 				></iframe>
-				<h4 className="mt-2 mb-1 text-md">DJ Set</h4>
-				{loadingStates.favoriteDJLiveSet && <FadeLoader />}
+				<h4 className="mt-2 mb-1 text-xl">DJ Set</h4>
+				{loadingStates.favoriteDJLiveSet && <FadeLoader className="m-auto" />}
 				<iframe
 					onLoad={() => handleLoad("favoriteDJLiveSet")}
 					width="560"

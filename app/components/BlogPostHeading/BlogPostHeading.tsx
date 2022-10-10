@@ -22,7 +22,7 @@ export default function BlogPostHeading(props: PostMeta) {
 			>
 				Back
 			</button>
-			<h1 className="!m-0">{title}</h1>
+			<h1 className="!m-0 text-3xl">{title}</h1>
 			<p className="font-medium text-base m-0">
 				Published on{" "}
 				<time dateTime={published}>{displayDate(published, longForm)}</time>

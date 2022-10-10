@@ -52,7 +52,7 @@ export default function TopNavbar() {
 	let mobileContent = pathName ? (
 		<header
 			role="banner"
-			className="text-slate-900 font-bold text-2xl font-['Open_Sans'] md:hidden"
+			className="text-slate-900 font-bold text-3xl font-['Open_Sans'] md:hidden"
 		>
 			{pathName}
 		</header>

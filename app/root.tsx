@@ -11,7 +11,7 @@ import type {
 
 // import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
 import Document from "~/components/Document";
-import Layout from "~/components/Layout";
+import Layout from "~/layouts/Layout";
 import pathTo from "~/utils/pathTo";
 import SearchProvider from "~/providers/SearchProvider";
 import styles from "~/tailwind.css";
