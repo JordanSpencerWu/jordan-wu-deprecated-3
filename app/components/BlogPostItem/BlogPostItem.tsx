@@ -33,7 +33,7 @@ export default function BlogPostItem(props: Props) {
 
 	return (
 		<animated.li
-			className="w-full border-y border-nav-border-color border-solid cursor-pointer"
+			className="w-full border-b border-nav-border-color border-solid cursor-pointer last:border-b-0"
 			style={fadeInStyles}
 		>
 			<Link to={`${slug}?${searchParams.toString()}`} state={state}>

@@ -96,7 +96,7 @@ export default function SearchRoute() {
 			<div className="hidden md:flex pt-4">
 				<SearchBar />
 			</div>
-			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden text-[18px] leading-6">
+			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden text-[18px] leading-6 border-b border-nav-border-color border-solid">
 				{orderedTags.map((tag) => {
 					const active = filters.includes(tag);
 
