@@ -9,6 +9,7 @@ import * as post_6 from "~/routes/posts/using-warp-as-my-terminal.mdx";
 import * as post_7 from "~/routes/posts/learning-chord-and-melody-with-hooktheory.mdx";
 import * as post_8 from "~/routes/posts/how-to-add-google-analytics-to-a-website.mdx";
 import * as post_9 from "~/routes/posts/how-to-improve-your-google-rankings.mdx";
+import * as post_10 from "~/routes/posts/kick-drum-synthesis-with-sonic-academy-kick-2.mdx";
 
 type Meta = {
 	description: string;
@@ -51,6 +52,7 @@ const ALL_POSTS = [
 	postFromModule(post_7),
 	postFromModule(post_8),
 	postFromModule(post_9),
+	postFromModule(post_10),
 ].reverse();
 
 const ALL_POST_TAGS = ALL_POSTS.reduce(
