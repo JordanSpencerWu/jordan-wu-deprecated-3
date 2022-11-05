@@ -37,7 +37,7 @@ export const headers: HeadersFunction = () => {
 };
 
 export async function loader() {
-	const recentPosts = POSTS.splice(0, 10);
+	const recentPosts = POSTS.slice(0, 10);
 
 	return json(recentPosts);
 }
