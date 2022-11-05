@@ -37,7 +37,9 @@ export const headers: HeadersFunction = () => {
 };
 
 export async function loader() {
-	return json(POSTS);
+	const recentPosts = POSTS.splice(0, 10);
+
+	return json(recentPosts);
 }
 
 export default function HomeRoute() {
