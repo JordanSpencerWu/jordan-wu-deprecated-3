@@ -49,7 +49,7 @@ export default function BottomNavbar() {
 	const previousPathname = state?.previousPathname;
 
 	return (
-		<nav className="bg-white z-[1] fixed bottom-0 left-0 h-[60px] w-full border-t border-nav-border-color border-solid md:hidden">
+		<nav className="bg-white dark:bg-dark-navbar-color z-[1] fixed bottom-0 left-0 h-[60px] w-full border-t border-nav-border-color border-solid dark:border-none md:hidden">
 			<ol className="w-full h-full flex justify-around items-center">
 				{NAVBAR_LINKS.map((link) => {
 					const { ActiveIcon, Icon, pathName } = link;
@@ -57,7 +57,11 @@ export default function BottomNavbar() {
 						location.pathname === pathName() || previousPathname === pathName();
 
 					return (
-						<NavLink key={pathName()} to={pathName(searchParams.toString())}>
+						<NavLink
+							key={pathName()}
+							className="dark:text-white"
+							to={pathName(searchParams.toString())}
+						>
 							{isActive ? <ActiveIcon size={24} /> : <Icon size={24} />}
 						</NavLink>
 					);

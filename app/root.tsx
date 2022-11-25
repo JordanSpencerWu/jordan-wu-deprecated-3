@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, useCatch, useNavigate, useLocation } from "@remix-run/react";
+import { Outlet, useCatch, useNavigate } from "@remix-run/react";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import { json } from "@remix-run/node";
 
@@ -9,7 +9,7 @@ import type {
 	MetaFunction,
 } from "@remix-run/node";
 
-// import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
+import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
 import Document from "~/components/Document";
 import Layout from "~/layouts/Layout";
 import pathTo from "~/utils/pathTo";
@@ -73,18 +73,17 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
-	const location = useLocation();
-	// useEffect(() => {
-	// 	if (
-	// 		localStorage.theme === DARK_MODE ||
-	// 		(!(THEME in localStorage) &&
-	// 			window.matchMedia("(prefers-color-scheme: dark)").matches)
-	// 	) {
-	// 		document.documentElement.classList.add(DARK_MODE);
-	// 	} else {
-	// 		document.documentElement.classList.remove(DARK_MODE);
-	// 	}
-	// }, []);
+	useEffect(() => {
+		if (
+			localStorage.theme === DARK_MODE ||
+			(!(THEME in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.add(DARK_MODE);
+		} else {
+			document.documentElement.classList.remove(DARK_MODE);
+		}
+	}, []);
 
 	return (
 		<Document>
