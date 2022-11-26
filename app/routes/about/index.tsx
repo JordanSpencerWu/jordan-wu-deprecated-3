@@ -12,7 +12,7 @@ export const headers: HeadersFunction = () => {
 
 export default function AboutRoute() {
 	return (
-		<div className="w-full h-full flex flex-col p-[16px] lg:prose-xl text-xl">
+		<div className="w-full h-full flex flex-col p-[16px] dark:text-white lg:prose-xl text-xl">
 			<p>
 				Welcome to my website! My name is Jordan and I will be blogging about
 				everything! There's so much to learn in life and the best way to learn

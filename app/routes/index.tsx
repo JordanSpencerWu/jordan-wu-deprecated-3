@@ -71,21 +71,21 @@ export default function HomeRoute() {
 	return (
 		<div className="w-full flex flex-col">
 			<div className="flex flex-col px-4 py-24">
-				<h1 className="text-7xl">welcome!</h1>
-				<h3 className="mt-2 text-3xl min-h-[108px]">
+				<h1 className="dark:text-white text-7xl">welcome!</h1>
+				<h3 className="dark:text-white mt-2 text-3xl min-h-[108px]">
 					{`My name is Jordan and I'll be blogging about `}
 					<ReactRotatingText items={TAGS} random={true} />
 				</h3>
 			</div>
-			<div className="py-8 flex flex-col border-y border-nav-border-color border-solid">
-				<h3 className="text-2xl px-4">RECENT POSTS</h3>
+			<div className="py-8 flex flex-col border-y border-nav-border-color dark:border-dark-secondary-color border-solid">
+				<h3 className="dark:text-white text-2xl px-4">RECENT POSTS</h3>
 				<ul className="w-full">
 					{posts.map((post, index) => {
 						return (
 							<li key={post.slug}>
 								{index === 5 && (
-									<div className="w-full py-4 px-4 mt-4 flex flex-col border-y border-nav-border-color border-solid">
-										<h3 className="text-2xl">FIND BY TOPICS</h3>
+									<div className="w-full py-4 px-4 mt-4 flex flex-col border-y border-nav-border-color dark:border-dark-secondary-color border-solid">
+										<h3 className="dark:text-white text-2xl">FIND BY TOPICS</h3>
 										<div className="my-4 inline-flex flex-wrap gap-x-2 gap-y-2.5 text-[14px] leading-6">
 											{TAGS.map((tag) => (
 												<Tag
@@ -108,7 +108,7 @@ export default function HomeRoute() {
 										<article className="w-full py-2">
 											<div className="flex justify-between">
 												<div
-													className={`pr-4 w-[calc(100%_-_var(--post-image-width))]`}
+													className={`dark:text-dark-secondary-color pr-4 w-[calc(100%_-_var(--post-image-width))]`}
 												>
 													<p className="max-w-7/10 pt-1 font-bold text-xl leading-6">
 														{post.meta.title}
@@ -137,8 +137,8 @@ export default function HomeRoute() {
 					})}
 				</ul>
 			</div>
-			<div className="py-8 px-4 flex flex-col border-t border-nav-border-color border-solid">
-				<h3 className="text-2xl">CURRENT FAVORITE</h3>
+			<div className="dark:text-dark-secondary-color py-8 px-4 flex flex-col border-t border-nav-border-color dark:border-dark-secondary-color border-solid">
+				<h3 className="dark:text-white text-2xl">CURRENT FAVORITE</h3>
 				<h4 className="mt-2 mb-1 text-xl">Track</h4>
 				{loadingStates.favoriteTrack && <FadeLoader className="m-auto" />}
 				<iframe

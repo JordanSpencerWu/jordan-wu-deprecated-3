@@ -24,7 +24,7 @@ export default function Document(props: Props) {
 				<Meta />
 				<Links />
 			</head>
-			<body className="bg-white min-h-screen w-screen h-screen relative flex flex-col overflow-x-hidde animate-fade-in">
+			<body className="bg-white dark:bg-dark-background-color min-h-screen w-screen h-screen relative flex flex-col overflow-x-hidde animate-fade-in">
 				{process.env.NODE_ENV === "production" && gaTrackingId && (
 					<>
 						<script

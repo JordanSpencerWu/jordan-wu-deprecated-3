@@ -92,7 +92,12 @@ export default function TopNavbar() {
 	);
 
 	if (pathName === SEARCH_PATH_NAME) {
-		mobileContent = <SearchBar className="md:hidden" />;
+		mobileContent = (
+			<div className="w-full flex items-center justify-between md:hidden">
+				<SearchBar className="mr-4" />
+				{darkmodeButton}
+			</div>
+		);
 	}
 
 	return (

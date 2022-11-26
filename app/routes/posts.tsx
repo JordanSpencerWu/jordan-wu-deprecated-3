@@ -22,7 +22,7 @@ export default function Posts() {
 
 	return (
 		<article
-			className="m-auto p-[16px] prose lg:prose-xl prose-code:before:content-none prose-code:after:content-none text-xl"
+			className="m-auto p-[16px] prose dark:prose-invert lg:prose-xl prose-code:before:content-none prose-code:after:content-none text-xl"
 			id="post"
 		>
 			<Outlet />

@@ -92,11 +92,11 @@ export default function SearchRoute() {
 	const emptySearchResult = searchTerm && displayPosts.length === 0;
 
 	return (
-		<div className="w-full h-full flex flex-col">
+		<div className="dark:text-dark-secondary-color w-full h-full flex flex-col">
 			<div className="hidden md:flex pt-4">
 				<SearchBar />
 			</div>
-			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden text-[18px] leading-6 border-b border-nav-border-color border-solid">
+			<div className="py-4 inline-flex gap-1 flex-nowrap overflow-x-auto overflow-y-hidden text-[18px] leading-6 border-b border-nav-border-color dark:border-dark-secondary-color border-solid">
 				{orderedTags.map((tag) => {
 					const active = filters.includes(tag);
 
