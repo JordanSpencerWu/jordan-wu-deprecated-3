@@ -11,7 +11,7 @@ import {
 	MdModeNight as DarkModeIcon,
 } from "react-icons/md";
 
-import useDarkMode, { DARK_MODE, LIGHT_MODE } from "../../hooks/useDarkMode";
+import useDarkMode from "~/hooks/useDarkMode";
 import pathToName, { WEBSITE_NAME, SEARCH_PATH_NAME } from "~/utils/pathToName";
 import pathTo from "~/utils/pathTo";
 import SearchBar from "~/components/SearchBar";
@@ -41,8 +41,6 @@ export default function TopNavbar() {
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
 
-	const showLightMode = darkMode === LIGHT_MODE;
-	const showDarkMode = darkMode === DARK_MODE;
 	const pathName = pathToName[location.pathname];
 
 	function handleClick() {
@@ -54,15 +52,14 @@ export default function TopNavbar() {
 
 	const darkmodeButton = (
 		<button type="button">
-			{showLightMode && (
-				<LightModeIcon
+			{darkMode ? (
+				<DarkModeIcon
 					size={24}
 					className="dark:text-white animate-fade-in"
 					onClick={toggleDarkMode}
 				/>
-			)}
-			{showDarkMode && (
-				<DarkModeIcon
+			) : (
+				<LightModeIcon
 					size={24}
 					className="dark:text-white animate-fade-in"
 					onClick={toggleDarkMode}

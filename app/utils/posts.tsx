@@ -12,6 +12,7 @@ import * as post_9 from "~/routes/posts/how-to-improve-your-google-rankings.mdx"
 import * as post_10 from "~/routes/posts/kick-drum-synthesis-with-sonic-academy-kick-2.mdx";
 import * as post_11 from "~/routes/posts/learn-web-development.mdx";
 import * as post_12 from "~/routes/posts/creating-playlists-in-rekordbox.mdx";
+import * as post_13 from "~/routes/posts/how-to-add-tailwind-dark-mode-in-react.mdx";
 
 type Meta = {
 	description: string;
@@ -57,6 +58,7 @@ const ALL_POSTS = [
 	postFromModule(post_10),
 	postFromModule(post_11),
 	postFromModule(post_12),
+	postFromModule(post_13),
 ].reverse();
 
 const ALL_POST_TAGS = ALL_POSTS.reduce(

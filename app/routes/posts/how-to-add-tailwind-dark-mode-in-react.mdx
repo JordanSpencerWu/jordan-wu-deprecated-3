@@ -1,0 +1,139 @@
+---
+meta:
+  description: How to add Tailwind dark mode in React.
+  title: How To Add Tailwind Dark Mode In React
+
+headers:
+  Cache-Control: no-cache
+
+postImageUrl: https://s3.us-west-2.amazonaws.com/jordanwu.xyz.images/how-to-add-tailwind-dark-mode-in-react.gif
+published: 2022-11-26T21:55:56.203Z
+readingTimeInMinute: 5
+tags: ["web development", "software engineering"]
+---
+
+import BlogPostHeading from "~/components/BlogPostHeading";
+
+<BlogPostHeading {...attributes} />
+
+**Dark mode** is a common feature in most applications these days. This feature allows users to change the background color from light to dark. In dark mode, the content might be easier to read by reducing light exposure to your eyes. This is considered a user specific feature where the user can choose to use dark mode.
+
+In this blog post, I will go over how I implement dark mode using [Tailwind CSS Dark Mode](https://tailwindcss.com/docs/dark-mode). This implementation works for any React framework. Using Tailwind CSS to style your site in dark mode is easy! This is done by enabling the class strategy for dark mode in your tailwind configuration file.
+
+```javascript
+// tailwind.config.js
+module.exports = {
+	darkMode: "class",
+	// ...
+};
+```
+
+For the class strategy to work we need to add and remove the class `dark` in the `html` element of our webpage. If in dark mode we would add the class of `dark` and omit it in light mode.
+
+```html
+<!-- Dark mode not enabled -->
+<html>
+	<body>
+		<!-- Will be white -->
+		<div class="bg-white dark:bg-black">
+			<!-- ... -->
+		</div>
+	</body>
+</html>
+
+<!-- Dark mode enabled -->
+<html class="dark">
+	<body>
+		<!-- Will be black -->
+		<div class="bg-white dark:bg-black">
+			<!-- ... -->
+		</div>
+	</body>
+</html>
+```
+
+A prerequisite for this is knowing when we are in dark mode. There's a CSS media feature called [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) that is used to detect if a user has requested light or dark color themes. We can use this as our default setting for dark mode, however we would want the user to be able to toggle dark mode in our web application. The Tailwind documentation recommends using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) for our application specific dark mode. We can use `localStorage` to store a state called `theme` that holds a string value of `"light"` or `"dark"` to be explicit. A way to implement this is creating a Custom React Hook called `useDarkMode`.
+
+```typescript
+// useDarkMode.ts
+import { useEffect, useState } from "react";
+
+const LIGHT_MODE = "light";
+
+export const DARK_MODE = "dark";
+export const THEME = "theme";
+
+const useDarkMode = () => {
+	const [darkMode, setDarkMode] = useState<boolean>(false);
+
+	useEffect(() => {
+		if (
+			localStorage.theme === DARK_MODE ||
+			(!(THEME in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			setDarkMode(true);
+		} else {
+			setDarkMode(false);
+		}
+	}, []);
+
+	const toggleDarkMode = () => {
+		if (darkMode) {
+			localStorage.theme = LIGHT_MODE;
+			document.documentElement.classList.remove(DARK_MODE);
+			setDarkMode(false);
+		} else {
+			localStorage.theme = DARK_MODE;
+			document.documentElement.classList.add(DARK_MODE);
+			setDarkMode(true);
+		}
+	};
+
+	return [darkMode, toggleDarkMode] as const;
+};
+
+export default useDarkMode;
+```
+
+This custom hook checks both `prefers-color-scheme` and `localStorage` to see if we are in dark mode and exposes a function to toggle dark mode. Now that we know if we are in dark mode or not, the prerequisite is done. It's time to use this hook to add the class `dark` to the `html` element when we are in dark mode. At the root component of your React framework you can add a `useEffect` to do this check on mount. The [Document.documentElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement) will select our `html` element.
+
+```javascript
+import { THEME, DARK_MODE } from "~/hooks/useDarkMode";
+
+export default function App() {
+	useEffect(() => {
+		if (
+			localStorage.theme === DARK_MODE ||
+			(!(THEME in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.add(DARK_MODE);
+		}
+	}, []);
+
+  ...
+}
+```
+
+Now when the user first lands on our webpage it will display the right theme! To support toggling dark mode in our application we can use `useDarkMode`!
+
+```javascript
+import useDarkMode from "~/hooks/useDarkMode";
+
+export default function DarkModeButton() {
+	const [darkMode, toggleDarkMode] = useDarkMode();
+
+	return (
+		<button type="button">
+			{darkMode ? (
+				<DarkModeIcon onClick={toggleDarkMode} />
+			) : (
+				<LightModeIcon onClick={toggleDarkMode} />
+			)}
+		</button>
+	);
+}
+```
+
+Tailwind has a `dark` variant that lets you style your site differently when dark mode is enabled. To use this variant all you have to do is add the prefix dark, for example `dark:{class}`. And that's everything you need to implement Dark Mode with Tailwind CSS! If are using [Tailwind Typography Plugin](https://tailwindcss.com/docs/typography-plugin) to style your Markdown, it support [dark mode](https://tailwindcss.com/blog/tailwindcss-typography-v0-5)!

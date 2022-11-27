@@ -35,9 +35,9 @@
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *)):not([class]) {
-	background-color: var(--tw-prose-pre-bg);
+	background-color: #e4e4e4;
 	border-radius: 6px;
-	color: var(--tw-prose-pre-code);
+	color: black;
 	margin: 0;
 	padding: 0.2em 0.4em;
 }
