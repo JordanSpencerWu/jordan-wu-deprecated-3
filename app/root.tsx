@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, useCatch, useNavigate } from "@remix-run/react";
+import { Outlet, useCatch } from "@remix-run/react";
 import highlightStyles from "highlight.js/styles/github-dark-dimmed.css";
 import { json } from "@remix-run/node";
 
@@ -12,7 +12,6 @@ import type {
 import { DARK_MODE, THEME } from "~/hooks/useDarkMode";
 import Document from "~/components/Document";
 import Layout from "~/layouts/Layout";
-import pathTo from "~/utils/pathTo";
 import SearchProvider from "~/providers/SearchProvider";
 import styles from "~/tailwind.css";
 import { WEBSITE_NAME } from "~/utils/pathToName";
@@ -100,11 +99,17 @@ export default function App() {
 
 export function CatchBoundary() {
 	const caught = useCatch();
-	const navigate = useNavigate();
 
 	useEffect(() => {
-		const timer = setTimeout(() => navigate(pathTo.home()), 3000);
-		return () => clearTimeout(timer);
+		if (
+			localStorage.theme === DARK_MODE ||
+			(!(THEME in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.add(DARK_MODE);
+		} else {
+			document.documentElement.classList.remove(DARK_MODE);
+		}
 	}, []);
 
 	return (
@@ -112,9 +117,9 @@ export function CatchBoundary() {
 			<Layout>
 				<main className="h-full w-full max-w-[1140px] my-[60px]">
 					<div className="h-full flex flex-col justify-center items-center">
-						<div className="text-4xl -translate-y-20 text-center">
-							<h1>Status Code: {caught.status}</h1>
-							<h2>{caught.statusText}</h2>
+						<div className="dark:text-white text-4xl -translate-y-20 text-center">
+							<p>Status Code: {caught.status}</p>
+							<p>{caught.statusText}</p>
 						</div>
 					</div>
 				</main>
@@ -124,11 +129,16 @@ export function CatchBoundary() {
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
-	const navigate = useNavigate();
-
 	useEffect(() => {
-		const timer = setTimeout(() => navigate(pathTo.home()), 3000);
-		return () => clearTimeout(timer);
+		if (
+			localStorage.theme === DARK_MODE ||
+			(!(THEME in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.add(DARK_MODE);
+		} else {
+			document.documentElement.classList.remove(DARK_MODE);
+		}
 	}, []);
 
 	return (
@@ -136,8 +146,9 @@ export function ErrorBoundary({ error }: { error: Error }) {
 			<Layout>
 				<main className="h-full w-full max-w-[1140px] my-[60px]">
 					<div className="h-full flex flex-col justify-center items-center">
-						<p className="text-2xl font-bold">Oops! An error has occurred.</p>
-						<p className="text-xl">Redirecting back to Home...</p>
+						<div className="dark:text-white text-4xl -translate-y-20 text-center">
+							<p className="text-2xl font-bold">Oops! An error has occurred.</p>
+						</div>
 					</div>
 				</main>
 			</Layout>
