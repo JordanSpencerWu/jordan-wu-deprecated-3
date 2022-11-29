@@ -72,9 +72,11 @@ export default function HomeRoute() {
 		<div className="w-full flex flex-col">
 			<div className="flex flex-col px-4 py-24">
 				<h1 className="dark:text-white text-7xl">welcome!</h1>
-				<h3 className="dark:text-white mt-2 text-3xl min-h-[108px]">
+				<h3 className="dark:text-white mt-2 text-3xl min-h-[116px]">
 					{`My name is Jordan and I'll be blogging about `}
-					<ReactRotatingText items={TAGS} random={true} />
+					<span className="text-[#75FB9F] text-4xl capitalize">
+						<ReactRotatingText items={TAGS} random={true} />
+					</span>
 				</h3>
 			</div>
 			<div className="py-8 flex flex-col border-y border-nav-border-color dark:border-dark-secondary-color border-solid">
