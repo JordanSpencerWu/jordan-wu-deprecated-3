@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { json } from "@remix-run/node";
 import {
 	Link,
@@ -6,25 +5,16 @@ import {
 	useLocation,
 	useSearchParams,
 } from "@remix-run/react";
-import FadeLoader from "react-spinners/FadeLoader";
-import classNames from "classnames";
 
 import type { HeadersFunction, MetaFunction } from "@remix-run/node";
 
 import displayDate from "~/utils/displayDate";
-import pathTo from "~/utils/pathTo";
 import POSTS, { TAGS } from "~/utils/posts";
 import Tag from "~/components/Tag";
 
 import type { PostMeta } from "~/utils/posts";
 
 var ReactRotatingText = require("react-rotating-text");
-
-const INITIAL_LOADING_STATES = {
-	favoriteTrack: true,
-	favoriteAlbum: true,
-	favoriteDJLiveSet: true,
-};
 
 export const meta: MetaFunction = () => {
 	return { title: "jordanwu.xyz | Home" };
@@ -43,30 +33,13 @@ export async function loader() {
 }
 
 export default function HomeRoute() {
-	const [loadingStates, setLoadingStates] = useState(INITIAL_LOADING_STATES);
 	const posts: PostMeta[] = useLoaderData();
 	const [searchParams] = useSearchParams();
 	const location = useLocation();
 
-	const trackClass = classNames("mb-4 rounded", {
-		hidden: loadingStates.favoriteTrack,
-	});
-	const albumClass = classNames("mb-4 rounded", {
-		hidden: loadingStates.favoriteAlbum,
-	});
-	const LiveSetClass = classNames("mb-4 w-full rounded", {
-		hidden: loadingStates.favoriteDJLiveSet,
-	});
-
 	const state = {
 		previousPathname: location.pathname,
 	};
-
-	function handleLoad(loadingState: string) {
-		const newLoadingStates = { [loadingState]: false };
-
-		setLoadingStates((prevState) => ({ ...prevState, ...newLoadingStates }));
-	}
 
 	return (
 		<div className="w-full flex flex-col">
@@ -79,7 +52,7 @@ export default function HomeRoute() {
 					</span>
 				</h3>
 			</div>
-			<div className="py-8 flex flex-col border-y border-nav-border-color dark:border-dark-secondary-color border-solid">
+			<div className="py-8 flex flex-col">
 				<h3 className="dark:text-white text-2xl px-4">RECENT POSTS</h3>
 				<ul className="w-full">
 					{posts.map((post, index) => {
@@ -138,57 +111,6 @@ export default function HomeRoute() {
 						);
 					})}
 				</ul>
-			</div>
-			<div className="dark:text-dark-secondary-color py-8 px-4 flex flex-col border-t border-nav-border-color dark:border-dark-secondary-color border-solid">
-				<h3 className="dark:text-white text-2xl">CURRENT FAVORITE</h3>
-				<h4 className="mt-2 mb-1 text-xl">Track</h4>
-				{loadingStates.favoriteTrack && <FadeLoader className="m-auto" />}
-				<iframe
-					onLoad={() => handleLoad("favoriteTrack")}
-					title="current favorite song"
-					className={trackClass}
-					src="https://open.spotify.com/embed/track/6RjdyJoKIxX8eNbYE5WWBK?utm_source=generator"
-					width="100%"
-					height="80"
-					frameBorder="0"
-					allowFullScreen
-					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-				></iframe>
-				<h4 className="mt-2 mb-1 text-xl">Album</h4>
-				{loadingStates.favoriteAlbum && <FadeLoader className="m-auto" />}
-				<iframe
-					onLoad={() => handleLoad("favoriteAlbum")}
-					title="current favorite album"
-					className={albumClass}
-					src="https://open.spotify.com/embed/album/01EWap3OnQCYOMgvZhA0uj?utm_source=generator"
-					width="100%"
-					height="380"
-					frameBorder="0"
-					allowFullScreen
-					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-				></iframe>
-				<h4 className="mt-2 mb-1 text-xl">DJ Set</h4>
-				{loadingStates.favoriteDJLiveSet && <FadeLoader className="m-auto" />}
-				<iframe
-					onLoad={() => handleLoad("favoriteDJLiveSet")}
-					width="560"
-					height="315"
-					className={LiveSetClass}
-					src="https://www.youtube.com/embed/E9nrKitD05g"
-					title="YouTube video player"
-					frameBorder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowFullScreen
-				></iframe>
-				<div className="my-4 flex justify-center">
-					<Link
-						to={pathTo.favorites(searchParams.toString())}
-						state={state}
-						className="text-sky-500 underline"
-					>
-						CHECK OUT MY LIST OF FAVORITES
-					</Link>
-				</div>
 			</div>
 		</div>
 	);
